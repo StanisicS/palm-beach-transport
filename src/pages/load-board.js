@@ -30,7 +30,7 @@ function EventsPage(props) {
           Find Available Loads
         </Title>
       </DividedSection>
-      <Container maxWidth="md">
+      {/* <Container maxWidth="md">
         {projects.map(e => (
           <React.Fragment>
             <Box mb={4} mt={4}>
@@ -51,25 +51,25 @@ function EventsPage(props) {
                   )}
                 </Grid>
                 <Grid item xs="8">
-                  {/* <Text variant="subheader">
+                  <Text variant="subheader">
                     {e.tags && <GenerateTags tags={e.tags} color="primary" />}
-                  </Text> */}
+                  </Text>
                   <div>
                     <Title
-                      // component={Link}
-                      // to={`/project/${slugify(e.projecttitle)}`}
-                      // variant="h4"
-                      // color="inherit"
+                      component={Link}
+                      to={`/project/${slugify(e.projecttitle)}`}
+                      variant="h4"
+                      color="inherit"
                     >
                       {e.projecttitle}
                     </Title>
                   </div>
                   <EventList
                     horizontal
-                    //category={e.category}
+                    category={e.category}
                     date={e.startdate}
                     person={e.nameofprojectlead}
-                    //organization={e.involvedorganizations}
+                    organization={e.involvedorganizations}
                   />
                 </Grid>
               </Grid>
@@ -77,7 +77,7 @@ function EventsPage(props) {
             <Divider />
           </React.Fragment>
         ))}
-      </Container>
+      </Container> */}
     </Layout>
   )
 }
