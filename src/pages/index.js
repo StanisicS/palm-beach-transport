@@ -136,24 +136,5 @@ export const pageQuery = graphql`
         }
       }
     }
-    partners: allGoogleSheetCompaniesRow(
-      filter: { partnertype: { eq: "Partner" } }
-    ) {
-      nodes {
-        name
-        website
-        logoUrl
-      }
-    }
-    quote: googleSheetPeopleRow(fullname: { eq: "Sigurd Handeland" }) {
-      fullname
-      kabisrole
-      avatarUrl
-      orgrole
-      company {
-        logoUrl
-        name
-      }
-    }
   }
 `
