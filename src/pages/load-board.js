@@ -84,20 +84,6 @@ function EventsPage(props) {
 
 export const ItemPageQuery = graphql`
   query Projects {
-    allGoogleSheetProjectsRow {
-      nodes {
-        id
-        coverUrl
-        description
-        category
-        projecttitle
-        nameofprojectlead
-        involvedorganizations
-        tags
-        startdate
-        enddate
-      }
-    }
     cover: file(relativePath: { eq: "load-main.jpg" }) {
       childImageSharp {
         # Specify the image processing specifications right in the query.
