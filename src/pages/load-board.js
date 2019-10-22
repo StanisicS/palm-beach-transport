@@ -15,7 +15,7 @@ import { Grid, Divider, Container, Box } from "@material-ui/core"
 import EventList, { GenerateTags } from "../components/event-list"
 
 function EventsPage(props) {
-  const projects = props.data.allGoogleSheetProjectsRow.nodes
+  // const projects = props.data.allGoogleSheetProjectsRow.nodes
   const img = props.data.cover.childImageSharp.fixed.src
   return (
     <Layout>
