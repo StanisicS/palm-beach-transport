@@ -58,7 +58,3 @@ module.exports = {
     `gatsby-plugin-netlify-cms`,
   ],
 }
-git add .
-git commit -m "Initial Commit"
-git remote add origin https://github.com/StanisicS/palm-beach-transport.git
-git push -u origin master
