@@ -56,10 +56,10 @@ function EventsPage(props) {
                   </Text> */}
                   <div>
                     <Title
-                      component={Link}
-                      to={`/project/${slugify(e.projecttitle)}`}
-                      variant="h4"
-                      color="inherit"
+                      // component={Link}
+                      // to={`/project/${slugify(e.projecttitle)}`}
+                      // variant="h4"
+                      // color="inherit"
                     >
                       {e.projecttitle}
                     </Title>

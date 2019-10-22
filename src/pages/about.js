@@ -49,7 +49,7 @@ function AboutPage({ data }) {
         backgroundColor="#333333"
       >
         <Title variant="h2" align="center">
-          About Palm Beach Tranmsport
+          About Palm Beach Transport
         </Title>
       </DividedSection>
       <Container maxWidth="md">
@@ -188,48 +188,48 @@ function AboutPage({ data }) {
     </Layout>
   )
 }
-export const ItemPageQuery = graphql`
-  query People {
-    people: allGoogleSheetPeopleRow(sort: { fields: fullname, order: ASC }) {
-      nodes {
-        fullname
-        kabisrole
-        avatarUrl
-        orgrole
-        company {
-          logoUrl
-          name
-        }
-      }
-    }
-    partners: allGoogleSheetCompaniesRow(
-      filter: { partnertype: { eq: "Partner" } }
-    ) {
-      nodes {
-        name
-        website
-        logoUrl
-      }
-    }
-    industry: allGoogleSheetCompaniesRow(
-      filter: { partnertype: { eq: "Industry Member" } }
-    ) {
-      nodes {
-        name
-        website
-        logoUrl
-      }
-    }
-    cover: file(relativePath: { eq: "kabis-kickoff.jpg" }) {
-      childImageSharp {
-        # Specify the image processing specifications right in the query.
-        # Makes it trivial to update as your page's design changes.
-        fixed(width: 1920, height: 1080) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-  }
-`
+// export const ItemPageQuery = graphql`
+//   query People {
+//     people: allGoogleSheetPeopleRow(sort: { fields: fullname, order: ASC }) {
+//       nodes {
+//         fullname
+//         kabisrole
+//         avatarUrl
+//         orgrole
+//         company {
+//           logoUrl
+//           name
+//         }
+//       }
+//     }
+//     partners: allGoogleSheetCompaniesRow(
+//       filter: { partnertype: { eq: "Partner" } }
+//     ) {
+//       nodes {
+//         name
+//         website
+//         logoUrl
+//       }
+//     }
+//     industry: allGoogleSheetCompaniesRow(
+//       filter: { partnertype: { eq: "Industry Member" } }
+//     ) {
+//       nodes {
+//         name
+//         website
+//         logoUrl
+//       }
+//     }
+//     cover: file(relativePath: { eq: "load-main.jpg" }) {
+//       childImageSharp {
+//         # Specify the image processing specifications right in the query.
+//         # Makes it trivial to update as your page's design changes.
+//         fixed(width: 1920, height: 1080) {
+//           ...GatsbyImageSharpFixed
+//         }
+//       }
+//     }
+//   }
+// `
 
 export default AboutPage
