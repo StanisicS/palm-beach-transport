@@ -30,7 +30,7 @@ function IndexPage(props) {
       >
         <Container maxWidth="sm" align="center">
           <Title variant="h3" align="center">
-            +1 561 264 3409 <br></br>+1 561 264 3410
+            PALM BEACH TRANSPORT LLC
           </Title>
           <Text variant="h5" align="center">
             Load Board to Find Truck Loads and Freight
