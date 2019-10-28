@@ -30,10 +30,10 @@ function IndexPage(props) {
       >
         <Container maxWidth="sm" align="center">
           <Title variant="h3" align="center">
-            Lorem Ipsum
+            +1 561 264 3409 <br></br>+1 561 264 3410
           </Title>
           <Text variant="h5" align="center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Load Board to Find Truck Loads and Freight
           </Text>
           <Box m={2}>
             <Button color="primary" to="/SignUp">
