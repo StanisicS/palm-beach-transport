@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Palm Beach Transport`,
     description: ``,
-    author: `@evansit.rs`,
+    author: `www.evansit.rs`,
   },
   plugins: [
     `gatsby-plugin-netlify-cms`,

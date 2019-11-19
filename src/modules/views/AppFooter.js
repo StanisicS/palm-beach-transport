@@ -11,7 +11,7 @@ function Copyright() {
     <React.Fragment>
       {'Â© '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        www.evansit.rs
       </Link>{' '}
       {new Date().getFullYear()}
     </React.Fragment>
@@ -87,14 +87,14 @@ export default function AppFooter() {
               className={classes.iconsWrapper}
               spacing={2}
             >
-              <Grid item className={classes.icons}>
+              {/* <Grid item className={classes.icons}>
                 <a href="https://material-ui.com/" className={classes.icon}>
                   <img src="/static/themes/onepirate/appFooterFacebook.png" alt="Facebook" />
                 </a>
                 <a href="https://twitter.com/MaterialUI" className={classes.icon}>
                   <img src="/static/themes/onepirate/appFooterTwitter.png" alt="Twitter" />
                 </a>
-              </Grid>
+              </Grid> */}
               <Grid item>
                 <Copyright />
               </Grid>
@@ -131,29 +131,20 @@ export default function AppFooter() {
               ))}
             </TextField>
           </Grid>
-          <Grid item>
-            <Typography variant="caption">
-              {'Icons made by '}
-              <Link href="https://www.freepik.com" rel="nofollow" title="Freepik">
-                Freepik
-              </Link>
-              {' from '}
-              <Link href="https://www.flaticon.com" rel="nofollow" title="Flaticon">
-                www.flaticon.com
-              </Link>
-              {' is licensed by '}
-              <Link
-                href="https://creativecommons.org/licenses/by/3.0/"
-                title="Creative Commons BY 3.0"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                CC 3.0 BY
-              </Link>
+          <Grid item xs={6} sm={4} md={2}>
+            <Typography variant="h6" marked="left" gutterBottom>
+              Support
             </Typography>
+            <ul className={classes.list}>
+              <li className={classes.listItem}>
+                <Link href="/premium-themes/onepirate/terms/">support@palmbeachtrans.com</Link>
+              </li>
+              <li className={classes.listItem}>
+                <Link href="/premium-themes/onepirate/privacy/">Contact us: 561-264-3410</Link>
+              </li>
+            </ul>
+            </Grid>
           </Grid>
-        </Grid>
       </Container>
-    </Typography>
-  );
-}
+      </Typography>
+  )

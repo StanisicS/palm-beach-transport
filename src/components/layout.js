@@ -9,6 +9,7 @@ import {
 import DashIcon from "@material-ui/icons/Dashboard"
 import UserIcon from "@material-ui/icons/AccountCircle"
 import { graphql, useStaticQuery } from "gatsby"
+import AppFooter from "../modules/views/AppFooter"
 
 const useSiteMetadata = () => {
   const data = useStaticQuery(
@@ -24,7 +25,7 @@ const useSiteMetadata = () => {
           childImageSharp {
             # Specify the image processing specifications right in the query.
             # Makes it trivial to update as your page's design changes.
-            fixed(width: 100) {
+            fixed(width: 150) {
               ...GatsbyImageSharpFixed
             }
           }
@@ -93,6 +94,7 @@ const TemplateWrapper = ({ children }) => {
       />
       <div style={{ minHeight: "100%" }}>{children}</div>
       <DividedSection black height="10vh" justifySelf="flex-end">
+        <AppFooter />
         <Title align="right">Palm Beach Transport LLC</Title>
       </DividedSection>
     </div>
