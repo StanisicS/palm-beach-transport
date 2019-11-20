@@ -84,8 +84,9 @@ const TemplateWrapper = ({ children }) => {
           <HeaderLinks
             links={[
               { link: "/", text: "Home" },
+              { link: "/need-load", text: "Find Load" },
               { link: "/load-board", text: "Load Board" },
-              { link: "/support", text: "Support" },
+              { link: "/contact", text: "Contact" },
               { link: "/about", text: "About" },
               { link: "/SignIn", text: "Log In" },
             ]}
@@ -93,10 +94,7 @@ const TemplateWrapper = ({ children }) => {
         }
       />
       <div style={{ minHeight: "100%" }}>{children}</div>
-      <DividedSection black height="10vh" justifySelf="flex-end">
-        <AppFooter />
-        <Title align="right">Palm Beach Transport LLC</Title>
-      </DividedSection>
+      <AppFooter />
     </div>
   )
 }
