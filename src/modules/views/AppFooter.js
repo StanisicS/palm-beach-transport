@@ -9,8 +9,8 @@ import TextField from "../components/TextField"
 function Copyright() {
   return (
     <React.Fragment>
-      {"Â© "}
-      <Link color="inherit" href="https://material-ui.com/">
+      {"© "}
+      <Link color="inherit" href="/">
         www.evansit.rs
       </Link>{" "}
       {new Date().getFullYear()}
@@ -102,14 +102,14 @@ export default function AppFooter() {
           </Grid>
           <Grid item xs={6} sm={4} md={2}>
             <Typography variant="h6" marked="left" gutterBottom>
-              Legal
+              Quick Links
             </Typography>
             <ul className={classes.list}>
               <li className={classes.listItem}>
-                <Link href="/premium-themes/onepirate/terms/">Terms</Link>
+                <Link href="/need-load/">Truck Empty Need Load?</Link>
               </li>
               <li className={classes.listItem}>
-                <Link href="/premium-themes/onepirate/privacy/">Privacy</Link>
+                <Link href="/">Careers</Link>
               </li>
             </ul>
           </Grid>
@@ -137,14 +137,13 @@ export default function AppFooter() {
             </Typography>
             <ul className={classes.list}>
               <li className={classes.listItem}>
-                <Link href="/premium-themes/onepirate/terms/">
+                <a href="mailto:support@palmbeachtrans.com">
                   support@palmbeachtrans.com
-                </Link>
+                </a>
+                <br />
               </li>
               <li className={classes.listItem}>
-                <Link href="/premium-themes/onepirate/privacy/">
-                  Contact us: 561-264-3410
-                </Link>
+                <a href="tel:561-264-3410">561-264-3410</a>
               </li>
             </ul>
           </Grid>
