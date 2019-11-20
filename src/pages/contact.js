@@ -4,17 +4,7 @@ import Layout from "../components/layout"
 import { makeStyles } from "@material-ui/core/styles"
 import Typography from "../modules/components/Typography"
 
-const useStyles = makeStyles(theme => ({
-  form: {
-    marginTop: theme.spacing(6),
-  },
-  button: {
-    marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(2),
-  },
-}))
-
-const ContactFormPage = useStyles => (
+const ContactFormPage = () => (
   <Layout>
     <Typography>
       <h1>Contact</h1>
