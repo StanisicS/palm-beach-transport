@@ -1,23 +1,42 @@
 import React from "react"
 import Layout from "../components/layout"
 import AppForm from "../modules/views/AppForm"
+import Typography from "../modules/components/Typography"
+import TextField from "@material-ui/core/TextField"
+import RFTextField from "../modules/form/RFTextField"
+import Button from "@material-ui/core"
 
 const ContactFormPage = () => (
   <Layout>
     <AppForm>
-      <h1>Contact</h1>
-
+      <Typography variant="h3" gutterBottom marked="center" align="center">
+        Contact us
+      </Typography>
       <form name="Contact Form" method="POST" data-netlify="true">
         <input type="hidden" name="form-name" value="Contact Form" />
-        <div>
-          <label>Your Email:</label>
-          <input type="email" name="email" />
-        </div>
-        <div>
-          <label>Message:</label>
-          <textarea name="message" />
-        </div>
-        <button type="submit">Send</button>
+        <Field
+          autoComplete="email"
+          autoFocus
+          component={RFTextField}
+          fullWidth
+          label="Email"
+          margin="normal"
+          name="email"
+          required
+          size="small"
+        />
+        <Field
+          autoFocus
+          component={RFTextField}
+          fullWidth
+          label="Message"
+          margin="normal"
+          name="message"
+          required
+          size="large"
+          type="text"
+        />
+        <Button type="submit">Sent</Button>
       </form>
     </AppForm>
   </Layout>
