@@ -4,7 +4,7 @@ import AppForm from "../modules/views/AppForm"
 import Typography from "../modules/components/Typography"
 import TextField from "@material-ui/core/TextField"
 import RFTextField from "../modules/form/RFTextField"
-import Button from "@material-ui/core"
+import { Button } from "gatsby-theme-material-foundry"
 
 const ContactFormPage = () => (
   <Layout>
