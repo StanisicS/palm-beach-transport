@@ -34,6 +34,7 @@
     "react-dom": "^16.8.6",
     "react-final-form": "^6.3.0",
     "react-helmet": "^5.2.1",
+    "styled-components": "^4.4.1",
     "typography": "0.16.19",
     "validator": "^11.1.0"
   },

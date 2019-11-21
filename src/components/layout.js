@@ -21,7 +21,7 @@ const useSiteMetadata = () => {
             description
           }
         }
-        file(relativePath: { eq: "pbt-logoL-Standard@2x.png" }) {
+        file(relativePath: { eq: "pbt-logoL-Standard.png" }) {
           childImageSharp {
             # Specify the image processing specifications right in the query.
             # Makes it trivial to update as your page's design changes.
@@ -81,7 +81,6 @@ const TemplateWrapper = ({ children }) => {
       </Helmet>
       <Header
         absolute
-        color="transparent"
         brand={site.siteMetadata.title}
         logo={file.childImageSharp.fixed.src}
         rightLinks={
@@ -90,7 +89,7 @@ const TemplateWrapper = ({ children }) => {
               { link: "/", text: "Home" },
               { link: "/need-load", text: "Find Load" },
               { link: "/load-board", text: "Load Board" },
-              { link: "/contact-us", text: "Contact" },
+              { link: "/contact-page", text: "Contact" },
               { link: "/about", text: "About" },
               { link: "/SignIn", text: "Log In" },
             ]}
