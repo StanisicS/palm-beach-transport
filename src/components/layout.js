@@ -44,6 +44,10 @@ const TemplateWrapper = ({ children }) => {
         <html lang="en" />
         <title>{site.siteMetadata.title}</title>
         <meta name="description" content={site.siteMetadata.description} />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
 
         <link
           rel="apple-touch-icon"
@@ -86,7 +90,7 @@ const TemplateWrapper = ({ children }) => {
               { link: "/", text: "Home" },
               { link: "/need-load", text: "Find Load" },
               { link: "/load-board", text: "Load Board" },
-              { link: "/contact", text: "Contact" },
+              { link: "/contact-us", text: "Contact" },
               { link: "/about", text: "About" },
               { link: "/SignIn", text: "Log In" },
             ]}
