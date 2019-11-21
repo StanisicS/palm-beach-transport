@@ -5,6 +5,15 @@ import { withStyles } from "@material-ui/core/styles"
 import Link from "@material-ui/core/Link"
 import AppBar from "../components/AppBar"
 import Toolbar, { styles as toolbarStyles } from "../components/Toolbar"
+import {
+  Header,
+  HeaderLinks,
+  DividedSection,
+  Title,
+} from "gatsby-theme-material-foundry"
+import DashIcon from "@material-ui/icons/Dashboard"
+import UserIcon from "@material-ui/icons/AccountCircle"
+import { graphql, useStaticQuery } from "gatsby"
 
 const styles = theme => ({
   title: {
@@ -35,42 +44,56 @@ const styles = theme => ({
   },
 })
 
+const useSiteMetadata = () => {
+  const data = useStaticQuery(
+    graphql`
+      query SITE_METADATA_QUERY {
+        site {
+          siteMetadata {
+            title
+            description
+          }
+        }
+        file(relativePath: { eq: "pbt-logoL-Standard.png" }) {
+          childImageSharp {
+            # Specify the image processing specifications right in the query.
+            # Makes it trivial to update as your page's design changes.
+            fixed(width: 150) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    `
+  )
+  return data
+}
+
 function AppAppBar(props) {
   const { classes } = props
-
+  const { site, file } = useSiteMetadata()
   return (
     <div>
       <AppBar position="fixed">
         <Toolbar className={classes.toolbar}>
-          <div className={classes.left} />
-          <Link
-            variant="h6"
-            underline="none"
-            color="inherit"
-            className={classes.title}
-            href="/"
-          >
-            {"palm beach transport"}
-          </Link>
-          <div className={classes.right}>
-            <Link
-              color="inherit"
-              variant="h6"
-              underline="none"
-              className={classes.rightLink}
-              href="/SignIn"
-            >
-              {"Sign In"}
-            </Link>
-            <Link
-              variant="h6"
-              underline="none"
-              className={clsx(classes.rightLink, classes.linkSecondary)}
-              href="/SignUp"
-            >
-              {"Sign Up"}
-            </Link>
-          </div>
+          <Header
+            absolute
+            //color="transparent"
+            brand={site.siteMetadata.title}
+            logo={file.childImageSharp.fixed.src}
+            rightLinks={
+              <HeaderLinks
+                links={[
+                  { link: "/", text: "Home" },
+                  { link: "/need-load", text: "Find Load" },
+                  { link: "/load-board", text: "Load Board" },
+                  { link: "/contact-page", text: "Contact" },
+                  { link: "/about", text: "About" },
+                  { link: "/SignIn", text: "Log In" },
+                ]}
+              />
+            }
+          />
         </Toolbar>
       </AppBar>
       <div className={classes.placeholder} />

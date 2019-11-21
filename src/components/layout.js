@@ -10,24 +10,16 @@ import DashIcon from "@material-ui/icons/Dashboard"
 import UserIcon from "@material-ui/icons/AccountCircle"
 import { graphql, useStaticQuery } from "gatsby"
 import AppFooter from "../modules/views/AppFooter"
+import AppAppBar from "../modules/views/AppAppBar"
 
 const useSiteMetadata = () => {
   const data = useStaticQuery(
     graphql`
-      query SITE_METADATA_QUERY {
+      query SITE_METADATA_AGAIN {
         site {
           siteMetadata {
             title
             description
-          }
-        }
-        file(relativePath: { eq: "pbt-logoL-Standard.png" }) {
-          childImageSharp {
-            # Specify the image processing specifications right in the query.
-            # Makes it trivial to update as your page's design changes.
-            fixed(width: 150) {
-              ...GatsbyImageSharpFixed
-            }
           }
         }
       }
@@ -37,7 +29,7 @@ const useSiteMetadata = () => {
 }
 
 const TemplateWrapper = ({ children }) => {
-  const { site, file } = useSiteMetadata()
+  const { site } = useSiteMetadata()
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <Helmet>
@@ -79,23 +71,7 @@ const TemplateWrapper = ({ children }) => {
         <meta property="og:url" content="/" />
         <meta property="og:image" content="/img/og-image.jpg" />
       </Helmet>
-      <Header
-        absolute
-        brand={site.siteMetadata.title}
-        logo={file.childImageSharp.fixed.src}
-        rightLinks={
-          <HeaderLinks
-            links={[
-              { link: "/", text: "Home" },
-              { link: "/need-load", text: "Find Load" },
-              { link: "/load-board", text: "Load Board" },
-              { link: "/contact-page", text: "Contact" },
-              { link: "/about", text: "About" },
-              { link: "/SignIn", text: "Log In" },
-            ]}
-          />
-        }
-      />
+      <AppAppBar />
       <div style={{ minHeight: "100%" }}>{children}</div>
       <AppFooter />
     </div>
