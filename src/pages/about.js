@@ -35,21 +35,26 @@ const useStyles = makeStyles({
   },
 })
 
-function AboutPage({ data }) {
+function AboutPage({ data, props }) {
   const classes = useStyles()
+  const img = props.data.cover.childImageSharp.fixed.src
 
   return (
     <Layout>
       <SEO title="About Palm Beach Transport" />
       <DividedSection
         black
-        height="50vh"
-        image={data.cover.childImageSharp.fixed.src}
+        image={img}
+        height="80vh"
+        backgroundRepeat="no-repeat"
+        backgroundPosition="center center"
+        backgroundSize="cover"
+        backgroundAttachment="fixed"
         backgroundBlendMode="overlay"
         backgroundColor="#333333"
       >
         <Title variant="h2" align="center">
-          About Palm Beach Transport
+          About Us
         </Title>
       </DividedSection>
       <Container maxWidth="md">
@@ -190,7 +195,7 @@ function AboutPage({ data }) {
 }
 export const ItemPageQuery = graphql`
   query People {
-    cover: file(relativePath: { eq: "load-main.jpg" }) {
+    cover: file(relativePath: { eq: "cover-main.jpg" }) {
       childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
