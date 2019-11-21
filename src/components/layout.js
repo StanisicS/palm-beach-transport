@@ -91,9 +91,9 @@ const TemplateWrapper = ({ children }) => {
               { link: "/", text: "Home" },
               { link: "/need-load", text: "Find Load" },
               { link: "/load-board", text: "Load Board" },
-              { link: "/contact-us", text: "Contact" },
+              { link: "/contact-page", text: "Contact" },
               { link: "/about", text: "About" },
-              { link: "/SignIn", text: "Log In" },
+              { link: "/sign-in", text: "Log In" },
             ]}
           />
         }
