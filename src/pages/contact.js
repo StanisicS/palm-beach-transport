@@ -1,44 +1,78 @@
+import withRoot from "../modules/withRoot"
+// --- Post bootstrap -----
 import React from "react"
-import Layout from "../components/layout"
-import AppForm from "../modules/views/AppForm"
+import { Field, Form, FormSpy } from "react-final-form"
+import { makeStyles } from "@material-ui/core/styles"
+import Link from "@material-ui/core/Link"
 import Typography from "../modules/components/Typography"
-import TextField from "@material-ui/core/TextField"
+import AppFooter from "../modules/views/AppFooter"
+import AppAppBar from "../modules/views/AppAppBar"
+import AppForm from "../modules/views/AppForm"
+import { email, required } from "../modules/form/validation"
 import RFTextField from "../modules/form/RFTextField"
-import { Button } from "gatsby-theme-material-foundry"
+import FormButton from "../modules/form/FormButton"
+import FormFeedback from "../modules/form/FormFeedback"
+
+const useStyles = makeStyles(theme => ({
+  form: {
+    marginTop: theme.spacing(6),
+  },
+  button: {
+    marginTop: theme.spacing(3),
+    marginBottom: theme.spacing(2),
+  },
+  feedback: {
+    marginTop: theme.spacing(2),
+  },
+}))
 
 const ContactFormPage = () => (
-  <Layout>
-    <AppForm>
-      <Typography variant="h3" gutterBottom marked="center" align="center">
-        Contact us
-      </Typography>
-      <form name="Contact Form" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="Contact Form" />
-        <Field
-          autoComplete="email"
-          autoFocus
-          component={RFTextField}
-          fullWidth
-          label="Email"
-          margin="normal"
-          name="email"
-          required
-          size="small"
-        />
-        <Field
-          autoFocus
-          component={RFTextField}
-          fullWidth
-          label="Message"
-          margin="normal"
-          name="message"
-          required
-          size="large"
-          type="text"
-        />
-        <Button type="submit">Sent</Button>
-      </form>
-    </AppForm>
-  </Layout>
+  <AppForm>
+    <Typography variant="h3" gutterBottom marked="center" align="center">
+      Contact Us
+    </Typography>
+    <form
+      name="contact"
+      method="post"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="bot-field" />
+      <input type="hidden" name="form-name" value="contact" />
+      <Field
+        autoComplete="email"
+        autoFocus
+        component={RFTextField}
+        disabled={submitting || sent}
+        fullWidth
+        label="Email"
+        margin="normal"
+        name="email"
+        required
+        size="large"
+      />
+      <Field
+        fullWidth
+        size="large"
+        component={RFTextField}
+        disabled={submitting || sent}
+        required
+        name="password"
+        autoComplete="current-password"
+        label="Password"
+        type="password"
+        margin="normal"
+      />
+      <FormButton
+        className={classes.button}
+        disabled={submitting || sent}
+        size="large"
+        color="secondary"
+        fullWidth
+      >
+        Send
+      </FormButton>
+    </form>
+  </AppForm>
 )
 export default ContactFormPage
