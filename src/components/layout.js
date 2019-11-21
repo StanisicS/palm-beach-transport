@@ -22,6 +22,15 @@ const useSiteMetadata = () => {
             description
           }
         }
+        file(relativePath: { eq: "pbt-logoL-Standard@2x.png" }) {
+          childImageSharp {
+            # Specify the image processing specifications right in the query.
+            # Makes it trivial to update as your page's design changes.
+            fixed(width: 150) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
       }
     `
   )
@@ -71,7 +80,24 @@ const TemplateWrapper = ({ children }) => {
         <meta property="og:url" content="/" />
         <meta property="og:image" content="/img/og-image.jpg" />
       </Helmet>
-      <AppAppBar />
+      <Header
+        absolute
+        color="transparent"
+        brand={site.siteMetadata.title}
+        logo={file.childImageSharp.fixed.src}
+        rightLinks={
+          <HeaderLinks
+            links={[
+              { link: "/", text: "Home" },
+              { link: "/need-load", text: "Find Load" },
+              { link: "/load-board", text: "Load Board" },
+              { link: "/contact-us", text: "Contact" },
+              { link: "/about", text: "About" },
+              { link: "/SignIn", text: "Log In" },
+            ]}
+          />
+        }
+      />
       <div style={{ minHeight: "100%" }}>{children}</div>
       <AppFooter />
     </div>

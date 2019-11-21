@@ -4,6 +4,7 @@ import AppForm from "../modules/views/AppForm"
 
 const ContactUsFormPage = () => (
   <Layout>
+    <AppForm>
       <h5 class="card-header info-color white-text text-center py-4">
         <strong>Contact us</strong>
       </h5>
@@ -51,6 +52,7 @@ const ContactUsFormPage = () => (
           Send
         </button>
       </form>
+    </AppForm>
   </Layout>
 )
 

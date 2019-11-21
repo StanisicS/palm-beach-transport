@@ -30,7 +30,7 @@ function IndexPage(props) {
       >
         <Container maxWidth="sm" align="center">
           <Title variant="h3" align="center">
-            PALM BEACH TRANSPORT
+            PALM BEACH TRANSPORT LLC
           </Title>
           <Text variant="h5" align="center">
             Load Board to Find Truck Loads and Freight
