@@ -1,8 +1,8 @@
 import { createMuiTheme } from "@material-ui/core"
 import chroma from "chroma-js"
 
-const PrimaryOrange = `#fa6900`
-const SecondaryTeal = `#19857b`
+const PrimaryOrange = `#FCB104`
+const SecondaryTeal = `#234E47`
 const ErrorRed = "#f44336"
 const InfoBlue = `#00acc1`
 const WarningYellow = "#ff9800"
@@ -75,7 +75,7 @@ const theme = createMuiTheme({
         .css(),
     },
     background: {
-      default: `#fff`,
+      default: `#E8ECEB`,
     },
   },
 })

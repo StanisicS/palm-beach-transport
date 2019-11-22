@@ -13,11 +13,12 @@ module.exports = {
         name: "markdown-pages",
       },
     },
-    {
-      resolve: `gatsby-plugin-netlify-identity`,
-      options: {
-        url: `https://your-identity-instance-here.netlify.com/` // required!
-      }
+    // {
+    //   resolve: `gatsby-plugin-netlify-identity`,
+    //   options: {
+    //     url: `https://your-identity-instance-here.netlify.com/`, // required!
+    //   },
+    // },
     `gatsby-transformer-remark`,
     `gatsby-theme-material-foundry`,
     `gatsby-plugin-react-helmet`,
@@ -39,7 +40,7 @@ module.exports = {
         background_color: `#f7f0eb`,
         theme_color: `#FCB104`,
         display: `standalone`,
-        icon: `src/images/icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-offline`,

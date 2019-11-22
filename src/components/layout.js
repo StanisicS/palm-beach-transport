@@ -38,7 +38,7 @@ const useSiteMetadata = () => {
 }
 
 const TemplateWrapper = ({ children }) => {
-  const { site } = useSiteMetadata()
+  const { site, file } = useSiteMetadata()
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <Helmet>
@@ -73,7 +73,7 @@ const TemplateWrapper = ({ children }) => {
           href="/img/safari-pinned-tab.svg"
           color="#ff4400"
         />
-        <meta name="theme-color" content="#fff" />
+        <meta name="theme-color" content="#E8ECEB" />
 
         <meta property="og:type" content="business.business" />
         <meta property="og:title" content={site.siteMetadata.title} />
@@ -82,7 +82,7 @@ const TemplateWrapper = ({ children }) => {
       </Helmet>
       <Header
         absolute
-        color="transparent"
+        color="#234E47"
         brand={site.siteMetadata.title}
         logo={file.childImageSharp.fixed.src}
         rightLinks={
