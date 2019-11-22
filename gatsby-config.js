@@ -37,12 +37,12 @@ module.exports = {
         name: `GatsbyJS`,
         short_name: `GatsbyJS`,
         start_url: `/`,
-        background_color: `#f7f0eb`,
+        background_color: `#E8ECEB`,
         theme_color: `#FCB104`,
         display: `standalone`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`,
   ],
 }
