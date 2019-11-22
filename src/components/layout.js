@@ -10,7 +10,7 @@ import DashIcon from "@material-ui/icons/Dashboard"
 import UserIcon from "@material-ui/icons/AccountCircle"
 import { graphql, useStaticQuery } from "gatsby"
 import AppFooter from "../modules/views/AppFooter"
-import AppAppBar from "../modules/views/AppAppBar"
+// import AppAppBar from "../modules/views/AppAppBar"
 
 const useSiteMetadata = () => {
   const data = useStaticQuery(
@@ -82,6 +82,7 @@ const TemplateWrapper = ({ children }) => {
       </Helmet>
       <Header
         absolute
+        fixed
         color="#234E47"
         brand={site.siteMetadata.title}
         logo={file.childImageSharp.fixed.src}

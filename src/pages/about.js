@@ -19,32 +19,29 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Dashboard from "@material-ui/icons/People"
-import Schedule from "@material-ui/icons/Business"
+// import Schedule from "@material-ui/icons/Business"
 import List from "@material-ui/icons/List"
 import Description from "@material-ui/icons/Description"
 //import { AvatarCard, CompanyCard } from "../components/custom-cards"
 
-const useStyles = makeStyles({
-  avatar: {
-    margin: 10,
-  },
-  bigAvatar: {
-    width: 100,
-    height: 100,
-    marginRight: "24px",
-  },
-})
+// const useStyles = makeStyles({
+//   avatar: {
+//     margin: 10,
+//   },
+//   bigAvatar: {
+//     width: 100,
+//     height: 100,
+//     marginRight: "24px",
+//   },
+// })
 
-function AboutPage({ data, props }) {
-  const classes = useStyles()
-  const img = props.data.cover.childImageSharp.fixed.src
-
+function AboutPage({ data }) {
   return (
     <Layout>
       <SEO title="About Palm Beach Transport" />
       <DividedSection
         black
-        image={img}
+        image={data.cover.childImageSharp.fixed.src}
         height="80vh"
         backgroundRepeat="no-repeat"
         backgroundPosition="center center"
