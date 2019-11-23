@@ -14,21 +14,21 @@ import withStyles from "@material-ui/core/styles/withStyles"
 
 import styled from "styled-components"
 
-const Dugme = styled.header`
-  width: auto;
-  margin: auto;
-  padding: auto;
-  background-color: #234E47;;
-  img {
-    width: 130px;
-    padding: 0px;
-    background-color: #234E47;
-    margin: -50px auto;
-    position: relative;
-    bottom: 3px;
-      }
-    }
-  }
+const Glava = styled.header`
+  background-color: #234e47
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+`
+const Slika = styled.img`
+  width: 130px;
+  padding: 0px;
+  margin: -50px auto;
+  position: relative;
+  bottom: 3px;
 `
 
 const useSiteMetadata = () => {
@@ -99,11 +99,10 @@ const TemplateWrapper = ({ children }) => {
         <meta property="og:url" content="/" />
         <meta property="og:image" content="/img/og-image.jpg" />
       </Helmet>
-      <Dugme
+      <Glava
         absolute
-        fixed
         brand={site.siteMetadata.title}
-        logo={file.childImageSharp.fixed.src}
+        logo={<Slika src={file.childImageSharp.fixed.src} href="/" />}
         rightLinks={
           <HeaderLinks
             links={[
