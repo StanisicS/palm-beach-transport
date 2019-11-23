@@ -1,4 +1,3 @@
-import withRoot from "../modules/withRoot"
 // --- Post bootstrap -----
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
@@ -13,6 +12,7 @@ import { email, required } from "../modules/form/validation"
 import RFTextField from "../modules/form/RFTextField"
 import FormButton from "../modules/form/FormButton"
 import FormFeedback from "../modules/form/FormFeedback"
+import Layout from "../components/layout"
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -52,8 +52,7 @@ function SignUp() {
   }
 
   return (
-    <React.Fragment>
-      <AppAppBar />
+    <Layout>
       <AppForm>
         <React.Fragment>
           <Typography variant="h3" gutterBottom marked="center" align="center">
@@ -138,8 +137,8 @@ function SignUp() {
         </Form>
       </AppForm>
       <AppFooter />
-    </React.Fragment>
+    </Layout>
   )
 }
 
-export default withRoot(SignUp)
+export default SignUp
