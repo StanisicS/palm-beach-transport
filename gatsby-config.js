@@ -20,7 +20,7 @@ module.exports = {
     //   },
     // },
     {
-      resolve: " gatsby-theme-material-foundry",
+      resolve: "gatsby-theme-material-foundry",
       options: {
         stylesProvider: {
           injectFirst: false,
@@ -35,8 +35,6 @@ module.exports = {
         },
       },
     },
-    "gatsby-plugin-styled-components",
-    `gatsby-theme-material-foundry`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
