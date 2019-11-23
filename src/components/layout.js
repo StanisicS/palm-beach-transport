@@ -14,19 +14,6 @@ import withStyles from "@material-ui/core/styles/withStyles"
 import classNames from "clsx"
 import { headerStyle } from "./styles"
 
-const Nested = withStyles({
-  root: {}, // a style rule
-  label: {}, // a nested style rule
-})(({ classes }) => (
-  <button className={classes.root}>
-    <span className={classes.label}> // 'jss2 my-label' Nested</span>
-  </button>
-))
-
-function Parent() {
-  return <Nested classes={{ label: "my-label" }} />
-}
-
 const useSiteMetadata = () => {
   const data = useStaticQuery(
     graphql`
