@@ -12,8 +12,24 @@ import { graphql, useStaticQuery } from "gatsby"
 import AppFooter from "../modules/views/AppFooter"
 import withStyles from "@material-ui/core/styles/withStyles"
 import { headerStyle } from "./styles"
+import styled from "styled-components"
 
-// import AppAppBar from "../modules/views/AppAppBar"
+const Dugme = styled.header`
+  width: auto;
+  margin: auto;
+  padding: auto;
+  background-color: #234E47;;
+  img {
+    width: 130px;
+    padding: 0px;
+    background-color: #234E47;
+    margin: -50px auto;
+    position: relative;
+    bottom: 3px;
+      }
+    }
+  }
+`
 
 const useSiteMetadata = () => {
   const data = useStaticQuery(
@@ -83,10 +99,9 @@ const TemplateWrapper = ({ children }) => {
         <meta property="og:url" content="/" />
         <meta property="og:image" content="/img/og-image.jpg" />
       </Helmet>
-      <Header
+      <Dugme
         absolute
         fixed
-        color="#234E47"
         brand={site.siteMetadata.title}
         logo={file.childImageSharp.fixed.src}
         rightLinks={
