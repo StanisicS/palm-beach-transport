@@ -19,12 +19,19 @@ module.exports = {
     //     url: `https://your-identity-instance-here.netlify.com/`, // required!
     //   },
     // },
-    `gatsby-transformer-remark`,
+    {
+      resolve: " gatsby-theme-material-foundry",
+      options: {
+        stylesProvider: {
+          injectFirst: true,
+        },
+      },
+    },
     {
       resolve: "gatsby-plugin-material-ui",
       options: {
         stylesProvider: {
-          injectFirst: true,
+          injectFirst: false,
         },
       },
     },

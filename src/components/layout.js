@@ -12,7 +12,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import AppFooter from "../modules/views/AppFooter"
 import withStyles from "@material-ui/core/styles/withStyles"
 import classNames from "clsx"
-import { headerStyle } from "./styles";
+import { headerStyle } from "./styles"
 
 const useSiteMetadata = () => {
   const data = useStaticQuery(
@@ -86,7 +86,6 @@ const TemplateWrapper = ({ children }) => {
         fixed
         brand={site.siteMetadata.title}
         logo={file.childImageSharp.fixed.src}
-        withStyles={children}
         rightLinks={
           <HeaderLinks
             links={[
