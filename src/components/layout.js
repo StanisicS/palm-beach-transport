@@ -11,7 +11,7 @@ import UserIcon from "@material-ui/icons/AccountCircle"
 import { graphql, useStaticQuery } from "gatsby"
 import AppFooter from "../modules/views/AppFooter"
 import withStyles from "@material-ui/core/styles/withStyles"
-import { headerStyle } from "./styles"
+
 import styled from "styled-components"
 
 const Dugme = styled.header`
@@ -123,4 +123,4 @@ const TemplateWrapper = ({ children }) => {
   )
 }
 
-export default withStyles(headerStyle)(TemplateWrapper)
+export default TemplateWrapper
