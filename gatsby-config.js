@@ -20,6 +20,15 @@ module.exports = {
     //   },
     // },
     `gatsby-transformer-remark`,
+    {
+      resolve: "gatsby-plugin-material-ui",
+      options: {
+        stylesProvider: {
+          injectFirst: true,
+        },
+      },
+    },
+    "gatsby-plugin-styled-components",
     `gatsby-theme-material-foundry`,
     `gatsby-plugin-react-helmet`,
     {
@@ -57,9 +66,9 @@ module.exports = {
               //strategy: 'selfHosted' // 'base64' || 'cdn'
             },
           ],
-    // `gatsby-plugin-offline`,
-        }
-      }
-    } 
-  ]
+          // `gatsby-plugin-offline`,
+        },
+      },
+    },
+  ],
 }
