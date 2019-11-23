@@ -7,7 +7,7 @@ const ErrorRed = "#f44336"
 const InfoBlue = `#00acc1`
 const WarningYellow = "#ff9800"
 const SuccessGreen = "#4caf50"
-const Black = "#111111"
+const Black = "#212121"
 
 const theme = createMuiTheme({
   palette: {
