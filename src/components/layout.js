@@ -11,25 +11,8 @@ import UserIcon from "@material-ui/icons/AccountCircle"
 import { graphql, useStaticQuery } from "gatsby"
 import AppFooter from "../modules/views/AppFooter"
 import withStyles from "@material-ui/core/styles/withStyles"
-
-import styled from "styled-components"
-
-const Glava = styled.header`
-  background-color: #234e47
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-`
-const Slika = styled.img`
-  width: 130px;
-  padding: 0px;
-  margin: -50px auto;
-  position: relative;
-  bottom: 3px;
-`
+import classNames from "clsx"
+import { headerStyle } from "./styles";
 
 const useSiteMetadata = () => {
   const data = useStaticQuery(
@@ -99,10 +82,11 @@ const TemplateWrapper = ({ children }) => {
         <meta property="og:url" content="/" />
         <meta property="og:image" content="/img/og-image.jpg" />
       </Helmet>
-      <Glava
-        absolute
+      <Header
+        fixed
         brand={site.siteMetadata.title}
-        logo={<Slika src={file.childImageSharp.fixed.src} href="/" />}
+        logo={file.childImageSharp.fixed.src}
+        withStyles={children}
         rightLinks={
           <HeaderLinks
             links={[
