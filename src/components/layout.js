@@ -10,6 +10,9 @@ import DashIcon from "@material-ui/icons/Dashboard"
 import UserIcon from "@material-ui/icons/AccountCircle"
 import { graphql, useStaticQuery } from "gatsby"
 import AppFooter from "../modules/views/AppFooter"
+import withStyles from "@material-ui/core/styles/withStyles"
+import { headerStyle } from "./styles"
+
 // import AppAppBar from "../modules/views/AppAppBar"
 
 const useSiteMetadata = () => {
@@ -105,4 +108,4 @@ const TemplateWrapper = ({ children }) => {
   )
 }
 
-export default TemplateWrapper
+export default withStyles(headerStyle)(TemplateWrapper)
