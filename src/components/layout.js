@@ -13,6 +13,7 @@ import AppFooter from "../modules/views/AppFooter"
 import withStyles from "@material-ui/core/styles/withStyles"
 import classNames from "clsx"
 import { headerStyle } from "./styles"
+import { StylesProvider } from "@material-ui/core/styles"
 
 const useSiteMetadata = () => {
   const data = useStaticQuery(
@@ -42,66 +43,68 @@ const useSiteMetadata = () => {
 const TemplateWrapper = ({ children }) => {
   const { site, file } = useSiteMetadata()
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <Helmet>
-        <html lang="en" />
-        <title>{site.siteMetadata.title}</title>
-        <meta name="description" content={site.siteMetadata.description} />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/img/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          href="/img/favicon-32x32.png"
-          sizes="32x32"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          href="/img/favicon-16x16.png"
-          sizes="16x16"
-        />
-
-        <link
-          rel="mask-icon"
-          href="/img/safari-pinned-tab.svg"
-          color="#ff4400"
-        />
-        <meta name="theme-color" content="#E8ECEB" />
-
-        <meta property="og:type" content="business.business" />
-        <meta property="og:title" content={site.siteMetadata.title} />
-        <meta property="og:url" content="/" />
-        <meta property="og:image" content="/img/og-image.jpg" />
-      </Helmet>
-      <Header
-        fixed
-        brand={site.siteMetadata.title}
-        logo={file.childImageSharp.fixed.src}
-        rightLinks={
-          <HeaderLinks
-            links={[
-              { link: "/", text: "Home" },
-              { link: "/need-load", text: "Find Load" },
-              { link: "/load-board", text: "Load Board" },
-              { link: "/contact-page", text: "Contact" },
-              { link: "/about", text: "About" },
-              { link: "/sign-in", text: "Log In" },
-            ]}
+    <StylesProvider injectFirst>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <Helmet>
+          <html lang="en" />
+          <title>{site.siteMetadata.title}</title>
+          <meta name="description" content={site.siteMetadata.description} />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-        }
-      />
-      <div style={{ minHeight: "100%" }}>{children}</div>
-      <AppFooter />
-    </div>
+
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/img/apple-touch-icon.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            href="/img/favicon-32x32.png"
+            sizes="32x32"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            href="/img/favicon-16x16.png"
+            sizes="16x16"
+          />
+
+          <link
+            rel="mask-icon"
+            href="/img/safari-pinned-tab.svg"
+            color="#ff4400"
+          />
+          <meta name="theme-color" content="#E8ECEB" />
+
+          <meta property="og:type" content="business.business" />
+          <meta property="og:title" content={site.siteMetadata.title} />
+          <meta property="og:url" content="/" />
+          <meta property="og:image" content="/img/og-image.jpg" />
+        </Helmet>
+        <Header
+          fixed
+          brand={site.siteMetadata.title}
+          logo={file.childImageSharp.fixed.src}
+          rightLinks={
+            <HeaderLinks
+              links={[
+                { link: "/", text: "Home" },
+                { link: "/need-load", text: "Find Load" },
+                { link: "/load-board", text: "Load Board" },
+                { link: "/contact-page", text: "Contact" },
+                { link: "/about", text: "About" },
+                { link: "/sign-in", text: "Log In" },
+              ]}
+            />
+          }
+        />
+        <div style={{ minHeight: "100%" }}>{children}</div>
+        <AppFooter />
+      </div>
+    </StylesProvider>
   )
 }
 
