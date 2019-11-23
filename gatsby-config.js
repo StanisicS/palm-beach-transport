@@ -49,7 +49,7 @@ module.exports = {
         background_color: `#E8ECEB`,
         theme_color: `#FCB104`,
         display: `standalone`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/pbt-icon.png`, // This path is relative to the root of the site.
       },
     },
     {
