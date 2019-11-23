@@ -83,7 +83,7 @@ const TemplateWrapper = ({ children }) => {
       <Header
         absolute
         fixed
-        color={rawTheme.palete.secondary}
+        color={theme.palette.secondary}
         brand={site.siteMetadata.title}
         logo={file.childImageSharp.fixed.src}
         rightLinks={
