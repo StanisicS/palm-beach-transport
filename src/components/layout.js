@@ -1,11 +1,7 @@
 import React from "react"
 import { Helmet } from "react-helmet"
-import {
-  Header,
-  HeaderLinks,
-  DividedSection,
-  Title,
-} from "gatsby-theme-material-foundry"
+import Header from "../components/header/header"
+import HeaderLinks from "../components/header/header-links"
 import DashIcon from "@material-ui/icons/Dashboard"
 import UserIcon from "@material-ui/icons/AccountCircle"
 import { graphql, useStaticQuery } from "gatsby"
