@@ -103,7 +103,7 @@ const TemplateWrapper = ({ children }) => {
         <meta property="og:url" content="/" />
         <meta property="og:image" content="/img/og-image.jpg" />
       </Helmet>
-      <Glava as Header
+      <Glava as "Header"
         absolute
         fixed
         brand={site.siteMetadata.title}
