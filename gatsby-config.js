@@ -23,7 +23,7 @@ module.exports = {
       resolve: "gatsby-theme-material-foundry",
       options: {
         stylesProvider: {
-          injectFirst: false,
+          injectFirst: true,
         },
       },
     },
