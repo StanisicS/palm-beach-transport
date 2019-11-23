@@ -53,7 +53,6 @@ function SignUp() {
 
   return (
     <Layout>
-      <AppAppBar />
       <AppForm>
         <React.Fragment>
           <Typography variant="h3" gutterBottom marked="center" align="center">
