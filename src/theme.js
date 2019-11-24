@@ -17,7 +17,7 @@ const theme = createMuiTheme({
         .css(),
       main: PrimaryOrange,
       dark: chroma(PrimaryOrange)
-        .darken(0.7)
+        .darken(0.9)
         .css(),
     },
     secondary: {

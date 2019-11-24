@@ -59,7 +59,7 @@ function SignUp() {
             Sign Up
           </Typography>
           <Typography variant="body2" align="center">
-            <Link href="/SignIn" underline="always">
+            <Link href="/sign-in" underline="always">
               Already have an account?
             </Link>
           </Typography>

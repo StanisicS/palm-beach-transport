@@ -10,6 +10,7 @@ import withStyles from "@material-ui/core/styles/withStyles"
 import classNames from "clsx"
 import { headerStyle } from "./styles"
 import { StylesProvider } from "@material-ui/core/styles"
+import theme from "../theme"
 
 const useSiteMetadata = () => {
   const data = useStaticQuery(
@@ -71,7 +72,7 @@ const TemplateWrapper = ({ children }) => {
           <link
             rel="mask-icon"
             href="/img/safari-pinned-tab.svg"
-            color="#ff4400"
+            color={theme.palette.primary.dark}
           />
           <meta name="theme-color" content="#E8ECEB" />
 

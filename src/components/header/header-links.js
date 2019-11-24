@@ -19,7 +19,7 @@ const RegisterButton = props => (
   <ListItem className={props.classes.listItem}>
     <Link to="/login-page">
       <Button
-        href=""
+        href="sign-up"
         color="transparent"
         target="_blank"
         style={{ color: "white" }}

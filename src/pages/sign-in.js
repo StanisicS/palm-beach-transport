@@ -117,7 +117,7 @@
             <Typography align="center">
               <Link
                 underline="always"
-                href="/"
+                href="/forgot-password"
               >
                 Forgot password?
               </Link>

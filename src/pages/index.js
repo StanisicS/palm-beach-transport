@@ -30,13 +30,13 @@ function IndexPage(props) {
       >
         <Container maxWidth="sm" align="center">
           <Title variant="h3" align="center">
-            PALM BEACH TRANSPORT LLC
+            PALM BEACH TRANSPORT
           </Title>
           <Text variant="h5" align="center">
             Load Board to Find Truck Loads and Freight
           </Text>
           <Box m={2}>
-            <Button color="primary" to="/SignUp">
+            <Button color="primary" to="/sign-up">
               Register
             </Button>
           </Box>
