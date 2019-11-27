@@ -32,12 +32,22 @@ const FormPage = () => {
                 <label htmlFor="name" className="grey-text">
                   Your name
                 </label>
-                <input type="text" name="name" id="name" />
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  className="form-control"
+                />
                 <br />
                 <label htmlFor="email" className="grey-text">
                   Your email
                 </label>
-                <input type="text" name="email" id="email" />
+                <input
+                  type="text"
+                  name="email"
+                  id="email"
+                  className="form-control"
+                />
                 <br />
                 <label
                   htmlFor="defaultFormContactSubjectEx"
@@ -48,13 +58,20 @@ const FormPage = () => {
                 <input
                   type="text"
                   name="defaultFormContactSubjectEx"
+                  className="form-control"
                   id="defaultFormContactSubjectEx"
                 />
                 <br />
                 <label htmlFor="message" className="grey-text">
                   Your message
                 </label>
-                <textarea type="text" id="message" name="message" rows="3" />
+                <textarea
+                  type="text"
+                  name="message"
+                  id="message"
+                  className="form-control"
+                  rows="3"
+                />
                 <div className="text-center mt-4">
                   <MDBBtn color="warning" outline type="submit">
                     Send
