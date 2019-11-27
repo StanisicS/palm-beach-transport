@@ -63,14 +63,14 @@ const NeedLoadFormPage = () => (
                 className="form-control"
               />
               <br />
-              <label htmlFor="textInput" className="grey-text">
+              <label htmlFor="name" className="grey-text">
                 Company Name or MC# Number
               </label>
               <input
                 type="text"
-                id="textInput"
-                name="textInput"
-                class="form-control mb-4"
+                id="name"
+                name="name"
+                class="form-control"
               />
               <label htmlFor="select" className="grey-text">
                 Type of Trailer
