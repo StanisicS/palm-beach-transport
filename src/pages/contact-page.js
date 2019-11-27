@@ -20,7 +20,12 @@ const FormPage = () => {
         <MDBContainer>
           <MDBRow>
             <MDBCol>
-              <form name="Contact Form" method="POST" data-netlify="true">
+              <form
+                name="Contact Form"
+                method="POST"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+              >
                 <input type="hidden" name="form-name" value="Contact Form" />
                 <p className="h4 text-center mb-4">Write to us</p>
                 <label htmlFor="defaultFormContactNameEx" className="grey-text">

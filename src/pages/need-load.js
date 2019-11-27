@@ -20,8 +20,14 @@ const NeedLoadFormPage = () => (
       <MDBContainer>
         <MDBRow>
           <MDBCol>
-            <form name="Custom Form" method="POST" data-netlify="true">
-              <input type="hidden" name="form-name" value="Contact Form" />
+            <br />
+            <form
+              name="Custom Form"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+            >
+              <input type="hidden" name="form-name" value="Custom Form" />
               <p className="h4 text-center mb-4">Truck Empty I Need Load</p>
               <label htmlFor="defaultFormContactNameEx" className="grey-text">
                 Customer Name
