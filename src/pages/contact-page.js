@@ -48,7 +48,8 @@ export default function Contact() {
             <MDBCol>
               <form
                 name="Contact Form"
-                method="POST"
+                method="post"
+                action="/thanks/"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
                 onSubmit={handleSubmit}
