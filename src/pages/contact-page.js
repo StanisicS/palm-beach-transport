@@ -77,6 +77,7 @@ const FormPage = () => {
                     Send
                     <MDBIcon far icon="paper-plane" className="ml-2" />
                   </MDBBtn>
+                  <br />
                 </div>
               </form>
             </MDBCol>
