@@ -47,7 +47,7 @@ export default function Contact() {
           <MDBRow>
             <MDBCol>
               <form
-                name="Contact Form"
+                name="contact"
                 method="post"
                 action="/thanks/"
                 data-netlify="true"
