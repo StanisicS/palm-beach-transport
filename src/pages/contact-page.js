@@ -12,34 +12,8 @@ const Kanta = styled.div`
   align-items: center;
   justify-content: center;
 `
-function encode(data) {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&")
-}
 
-export default function Contact() {
-  const [state, setState] = React.useState({})
-
-  const handleChange = e => {
-    setState({ ...state, [e.target.name]: e.target.value })
-  }
-
-  const handleSubmit = e => {
-    e.preventDefault()
-    const form = e.target
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": form.getAttribute("name"),
-        ...state,
-      }),
-    })
-      .then(() => navigate(form.getAttribute("action")))
-      .catch(error => alert(error))
-  }
-
+const FormPage = () => {
   return (
     <Layout>
       <Kanta>
@@ -49,41 +23,21 @@ export default function Contact() {
               <form
                 name="contact"
                 method="post"
-                action="/thanks/"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
-                onSubmit={handleSubmit}
               >
+                <input type="hidden" name="bot-field" />
                 <input type="hidden" name="form-name" value="contact" />
-                <p hidden>
-                  <label>
-                    Don’t fill this out:{" "}
-                    <input name="bot-field" onChange={handleChange} />
-                  </label>
-                </p>
                 <p className="h4 text-center mb-4">Write to us</p>
-                <label htmlFor="defaultFormContactNameEx" className="grey-text">
+                <label htmlFor="name" className="grey-text">
                   Your name
                 </label>
-                <input
-                  type="text"
-                  id="defaultFormContactNameEx"
-                  className="form-control"
-                  onChange={handleChange}
-                />
+                <input type="text" name="name" id="name" />
                 <br />
-                <label
-                  htmlFor="defaultFormContactEmailEx"
-                  className="grey-text"
-                >
+                <label htmlFor="email" className="grey-text">
                   Your email
                 </label>
-                <input
-                  type="email"
-                  id="defaultFormContactEmailEx"
-                  className="form-control"
-                  onChange={handleChange}
-                />
+                <input type="text" name="email" id="email" />
                 <br />
                 <label
                   htmlFor="defaultFormContactSubjectEx"
@@ -93,24 +47,14 @@ export default function Contact() {
                 </label>
                 <input
                   type="text"
+                  name="defaultFormContactSubjectEx"
                   id="defaultFormContactSubjectEx"
-                  className="form-control"
-                  onChange={handleChange}
                 />
                 <br />
-                <label
-                  htmlFor="defaultFormContactMessageEx"
-                  className="grey-text"
-                >
+                <label htmlFor="message" className="grey-text">
                   Your message
                 </label>
-                <textarea
-                  type="text"
-                  id="defaultFormContactMessageEx"
-                  className="form-control"
-                  rows="3"
-                  onChange={handleChange}
-                />
+                <textarea type="text" id="message" name="message" rows="3" />
                 <div className="text-center mt-4">
                   <MDBBtn color="warning" outline type="submit">
                     Send
@@ -125,3 +69,5 @@ export default function Contact() {
     </Layout>
   )
 }
+
+export default FormPage
