@@ -68,6 +68,7 @@ export default function Contact() {
                   type="text"
                   id="defaultFormContactNameEx"
                   className="form-control"
+                  onChange={handleChange}
                 />
                 <br />
                 <label
@@ -80,6 +81,7 @@ export default function Contact() {
                   type="email"
                   id="defaultFormContactEmailEx"
                   className="form-control"
+                  onChange={handleChange}
                 />
                 <br />
                 <label
@@ -92,6 +94,7 @@ export default function Contact() {
                   type="text"
                   id="defaultFormContactSubjectEx"
                   className="form-control"
+                  onChange={handleChange}
                 />
                 <br />
                 <label
@@ -105,6 +108,7 @@ export default function Contact() {
                   id="defaultFormContactMessageEx"
                   className="form-control"
                   rows="3"
+                  onChange={handleChange}
                 />
                 <div className="text-center mt-4">
                   <MDBBtn color="warning" outline type="submit">
