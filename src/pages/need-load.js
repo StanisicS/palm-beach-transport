@@ -63,13 +63,16 @@ const NeedLoadFormPage = () => (
                 className="form-control"
               />
               <br />
-              <label htmlFor="name" className="grey-text">
+              <label
+                htmlFor="exampleFormControlTextarea1"
+                className="grey-text"
+              >
                 Company Name or MC# Number
               </label>
               <input
                 type="text"
-                id="name"
-                name="name"
+                id="exampleFormControlTextarea1"
+                name="exampleFormControlTextarea1"
                 class="form-control"
               />
               <label htmlFor="select" className="grey-text">
@@ -91,14 +94,17 @@ const NeedLoadFormPage = () => (
                 <option value="hotshop">HOTSHOP</option>
                 <option value="strait box">STRAIT BOX</option>
               </select>
-              <label htmlFor="textInput" className="grey-text">
+              <label
+                htmlFor="exampleFormControlTextarea2"
+                className="grey-text"
+              >
                 Where are you? City or ZIP code
               </label>
               <input
                 type="text"
-                name="textInput"
-                id="textInput"
-                class="form-control mb-4"
+                name="exampleFormControlTextarea2"
+                id="exampleFormControlTextarea2"
+                class="form-control"
               />
               <label htmlFor="select" className="grey-text">
                 US State Location Truck is Now
