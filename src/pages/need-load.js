@@ -30,23 +30,23 @@ const NeedLoadFormPage = () => (
               <input type="hidden" name="bot-field" />
               <input type="hidden" name="form-name" value="custom" />
               <p className="h4 text-center mb-4">Truck Empty Need Load?</p>
-              <label htmlFor="defaultFormContactNameEx" className="grey-text">
+              <label htmlFor="name" className="grey-text">
                 Customer Name
               </label>
               <input
                 type="text"
-                name="defaultFormContactNameEx"
-                id="defaultFormContactNameEx"
+                name="name"
+                id="name"
                 className="form-control"
               />
               <br />
-              <label htmlFor="defaultFormContactEmailEx" className="grey-text">
+              <label htmlFor="email" className="grey-text">
                 Email Address
               </label>
               <input
-                type="email"
-                id="defaultFormContactEmailEx"
-                name="defaultFormContactEmailEx"
+                type="text"
+                id="email"
+                name="email"
                 className="form-control"
               />
               <br />
@@ -61,10 +61,9 @@ const NeedLoadFormPage = () => (
                 id="defaultRegisterPhonePassword"
                 name="defaultRegisterPhonePassword"
                 className="form-control"
-                aria-describedby="defaultRegisterFormPhoneHelpBlock"
               />
               <br />
-              <label for="textInput" className="grey-text">
+              <label htmlFor="textInput" className="grey-text">
                 Company Name or MC# Number
               </label>
               <input
@@ -73,7 +72,7 @@ const NeedLoadFormPage = () => (
                 name="textInput"
                 class="form-control mb-4"
               />
-              <label for="select" className="grey-text">
+              <label htmlFor="select" className="grey-text">
                 Type of Trailer
               </label>
               <select
@@ -92,7 +91,7 @@ const NeedLoadFormPage = () => (
                 <option value="hotshop">HOTSHOP</option>
                 <option value="strait box">STRAIT BOX</option>
               </select>
-              <label for="textInput" className="grey-text">
+              <label htmlFor="textInput" className="grey-text">
                 Where are you? City or ZIP code
               </label>
               <input
@@ -101,7 +100,7 @@ const NeedLoadFormPage = () => (
                 id="textInput"
                 class="form-control mb-4"
               />
-              <label for="select" className="grey-text">
+              <label htmlFor="select" className="grey-text">
                 US State Location Truck is Now
               </label>
               <select
@@ -163,28 +162,14 @@ const NeedLoadFormPage = () => (
                 <option value="wisconsin">Wisconsin</option>
                 <option value="wyoming">Wyoming</option>
               </select>
-              <label for="textarea" className="grey-text">
+              <label htmlFor="textarea" className="grey-text">
                 Where do you want to go?
               </label>
               <textarea
                 name="textarea"
                 id="textarea"
                 class="form-control mb-4"
-              ></textarea>
-              <div class="custom-control custom-checkbox">
-                <input
-                  type="checkbox"
-                  class="custom-control-input"
-                  id="defaultRegisterFormNewsletter"
-                  name="defaultRegisterFormNewsletter"
-                />
-                <label
-                  class="custom-control-label"
-                  for="defaultRegisterFormNewsletter"
-                >
-                  Subscribe to our newsletter
-                </label>
-              </div>
+              />
               <div className="text-center mt-4">
                 <MDBBtn color="warning" outline type="submit">
                   Submit{" "}
