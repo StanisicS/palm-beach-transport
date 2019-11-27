@@ -31,6 +31,8 @@ const NeedLoadFormPage = () => (
               <input type="hidden" name="form-name" value="custom" />
               <br />
               <br />
+              <br />
+              <br />
               <p className="h4 text-center mb-4">Truck Empty Need Load?</p>
               <label htmlFor="name" className="grey-text">
                 Customer Name
@@ -182,8 +184,8 @@ const NeedLoadFormPage = () => (
                 <MDBBtn color="warning" outline type="submit">
                   Submit{" "}
                   <MDBIcon far icon="fas fa-check" className="fas fa-check" />
-                  <br />
                 </MDBBtn>
+                <br />
               </div>
             </form>
           </MDBCol>
