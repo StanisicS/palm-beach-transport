@@ -22,18 +22,20 @@ const NeedLoadFormPage = () => (
           <MDBCol>
             <br />
             <form
-              name="Custom Form"
-              method="POST"
+              name="custom"
+              method="post"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
             >
-              <input type="hidden" name="form-name" value="Custom Form" />
-              <p className="h4 text-center mb-4">Truck Empty I Need Load</p>
+              <input type="hidden" name="bot-field" />
+              <input type="hidden" name="form-name" value="custom" />
+              <p className="h4 text-center mb-4">Truck Empty Need Load?</p>
               <label htmlFor="defaultFormContactNameEx" className="grey-text">
                 Customer Name
               </label>
               <input
                 type="text"
+                name="defaultFormContactNameEx"
                 id="defaultFormContactNameEx"
                 className="form-control"
               />
@@ -44,6 +46,7 @@ const NeedLoadFormPage = () => (
               <input
                 type="email"
                 id="defaultFormContactEmailEx"
+                name="defaultFormContactEmailEx"
                 className="form-control"
               />
               <br />
@@ -56,18 +59,28 @@ const NeedLoadFormPage = () => (
               <input
                 type="text"
                 id="defaultRegisterPhonePassword"
-                class="form-control"
+                name="defaultRegisterPhonePassword"
+                className="form-control"
                 aria-describedby="defaultRegisterFormPhoneHelpBlock"
               />
               <br />
               <label for="textInput" className="grey-text">
                 Company Name or MC# Number
               </label>
-              <input type="text" id="textInput" class="form-control mb-4" />
+              <input
+                type="text"
+                id="textInput"
+                name="textInput"
+                class="form-control mb-4"
+              />
               <label for="select" className="grey-text">
                 Type of Trailer
               </label>
-              <select class="browser-default custom-select mb-4" id="select">
+              <select
+                class="browser-default custom-select mb-4"
+                name="select"
+                id="select"
+              >
                 <option value="" disabled="" selected="">
                   Choose your option
                 </option>
@@ -82,11 +95,20 @@ const NeedLoadFormPage = () => (
               <label for="textInput" className="grey-text">
                 Where are you? City or ZIP code
               </label>
-              <input type="text" id="textInput" class="form-control mb-4" />
+              <input
+                type="text"
+                name="textInput"
+                id="textInput"
+                class="form-control mb-4"
+              />
               <label for="select" className="grey-text">
                 US State Location Truck is Now
               </label>
-              <select class="browser-default custom-select mb-4" id="select">
+              <select
+                class="browser-default custom-select mb-4"
+                name="select"
+                id="select"
+              >
                 <option value="" disabled="" selected="">
                   Choose your option
                 </option>
@@ -144,12 +166,17 @@ const NeedLoadFormPage = () => (
               <label for="textarea" className="grey-text">
                 Where do you want to go?
               </label>
-              <textarea id="textarea" class="form-control mb-4"></textarea>
+              <textarea
+                name="textarea"
+                id="textarea"
+                class="form-control mb-4"
+              ></textarea>
               <div class="custom-control custom-checkbox">
                 <input
                   type="checkbox"
                   class="custom-control-input"
                   id="defaultRegisterFormNewsletter"
+                  name="defaultRegisterFormNewsletter"
                 />
                 <label
                   class="custom-control-label"
