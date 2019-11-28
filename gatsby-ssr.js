@@ -1,3 +1,5 @@
+const netlifyIdentity = require("netlify-identity-widget")
+
 import React from "react"
 export function onRenderBody({ setHeadComponents, setPostBodyComponents, setPreBodyComponents }) {
   setHeadComponents([
@@ -12,4 +14,5 @@ export function onRenderBody({ setHeadComponents, setPostBodyComponents, setPreB
   setPostBodyComponents([
     <div data-netlify-identity-button>Login with Netlify Identity</div>,
   ])
+
 }

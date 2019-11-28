@@ -38,7 +38,7 @@ const Date = styled.p`
 `
 
 const LoadBoard = ({ data }) => {
-                 const { edges: posts } = data.allMarkdownRemark
+                 const { edges: posts } = data.MarkdownRemark
                  return (
                    <Helmet>
                     <title>{"Load Board"}</title>
