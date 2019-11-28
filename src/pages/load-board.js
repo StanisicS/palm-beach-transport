@@ -37,47 +37,39 @@ const Date = styled.p`
   font-style: italic;
 `
 
-const useSiteMetadata = () => {
-  graphql`
-    query SITE_METADATA_YES {
-      site {
-        siteMetadata {
-          title
-          description
-        }
-      }
-    }
-  `
-
-  const data = this.props
-  const edges = data.allMarkdownRemark
-  const site = useSiteMetadata
-}
-
-function LoadBoard(data, edges, site) {
-  <Helmet>
-    <title>{"Load Board"}</title>
-    <Layout>
-      <SEO title="Load Board" />
-      <Kanta>
-        <MDBContainer>
-          <h2>Available Loads</h2>
-          <ul>
-            {edges.map(edge => {
-              const { path, title } = edge.node.frontmatter
-              return (
-                <Posts key={path}>
-                  <StyledLink to={path}>
-                    <Date>{title}</Date>
-                  </StyledLink>
-                </Posts>
-              )
-            })}
-          </ul>
-        </MDBContainer>
-      </Kanta>
-    </Layout>
-  </Helmet>
-}
-
-export default LoadBoard
+export default function LoadBoard({ data }) {
+                 const { edges: posts } = data.allMarkdownRemark
+                 return (
+                   <Helmet>
+                    <title>{"Load Board"}</title>
+                    <Layout>
+                      <SEO title="Load Board" />
+                      <Kanta>
+                        <MDBContainer>
+                        <div className="blog-posts">
+                          {" "}
+                          {posts
+                            .filter(post => post.node.frontmatter.title.length > 0)
+                            .map(({ node: post }) => {
+                              return (
+                                <div className="blog-post-preview" key={post.id}>
+                                  {" "}
+                                  <h1>
+                                    {" "}
+                                    <Link to={post.frontmatter.path}>
+                                      {post.frontmatter.title}
+                                    </Link>{" "}
+                                  </h1>{" "}
+                                  <h2>{post.frontmatter.date}</h2>{" "}
+                                  <p>{post.excerpt}</p>{" "}
+                                </div>
+                              )
+                            })}{" "}
+                        </div>
+                      
+                      </MDBContainer>
+                        </Kanta>
+                    </Layout>
+                    </Helmet>
+                    )
+                  }
