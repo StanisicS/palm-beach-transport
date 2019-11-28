@@ -1,58 +1,69 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
 import styled from "styled-components"
 import Img from "gatsby-image"
+// import Helmet from "react-helmet"
 
 const Kanta = styled.div`
-  margin: 7rem auto;
+  margin: 4rem auto;
   padding: 1px;
-  max-width: 600px;
+  max-width: 900px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 `
 
-export default ({ data }) => {
-  let post = data.markdownRemark
-  let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
+export default function Template({ data }) {
+  const post = data.markdownRemark
+  // let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
   return (
     <Layout>
       <Kanta>
         <MDBContainer>
+          <br />
           <div className="blog-post-container">
+            {" "}
             <div className="blog-post">
-              <h1>{frontmatter.title}</h1>
-
-              <Img fluid={featuredImgFluid} />
-
+              {" "}
+              <h1>{post.frontmatter.title}</h1> <h2>{post.frontmatter.date}</h2>{" "}
+              <Img fluid={data.file.childImageSharp.fluid} />
               <div
                 className="blog-post-content"
                 dangerouslySetInnerHTML={{ __html: post.html }}
-              />
-            </div>
+              />{" "}
+            </div>{" "}
           </div>
         </MDBContainer>
       </Kanta>
     </Layout>
   )
 }
-export const query = graphql`
-  query PostQuery($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
-        featuredImage {
+const useSiteMetadata = () => {
+  const data = useStaticQuery(
+    graphql`
+      query BlogPostByPath($path: String!) {
+        markdownRemark(frontmatter: { path: { eq: $path } }) {
+          frontmatter {
+            image
+            date(formatString: "MMMM DD, YYYY")
+            title
+            path
+          }
+        }
+        file(relativePath: { eq: "capture.png" }) {
           childImageSharp {
-            fluid(maxWidth: 800) {
+            # Specify the image processing specifications right in the query.
+            # Makes it trivial to update as your page's design changes.
+            fluid(maxWidth: 900) {
               ...GatsbyImageSharpFluid
             }
           }
         }
       }
-    }
-  }
-`
+    `
+  )
+  return data
+}

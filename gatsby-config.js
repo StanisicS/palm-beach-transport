@@ -6,6 +6,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-netlify-cms`,
+    `gatsby-plugin-catch-links`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-transformer-remark`,

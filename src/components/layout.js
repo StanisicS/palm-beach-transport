@@ -11,6 +11,7 @@ import classNames from "clsx"
 import { headerStyle } from "./styles"
 import { StylesProvider } from "@material-ui/core/styles"
 import theme from "../theme"
+import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
 
 const useSiteMetadata = () => {
   const data = useStaticQuery(
@@ -48,7 +49,7 @@ const TemplateWrapper = ({ children }) => {
           <meta name="description" content={site.siteMetadata.description} />
           <meta
             name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+            content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
           />
 
           <link
@@ -98,8 +99,10 @@ const TemplateWrapper = ({ children }) => {
             />
           }
         />
-        <div style={{ minHeight: "100%" }}>{children}</div>
-        <AppFooter />
+        <MDBContainer>
+          <div style={{ minHeight: "100%" }}>{children}</div>
+          <AppFooter />
+        </MDBContainer>
       </div>
     </StylesProvider>
   )
