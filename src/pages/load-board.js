@@ -39,14 +39,6 @@ const Date = styled.p`
 
 const useSiteMetadata = () => {
   graphql`
-    query SITE_METADATA_YES {
-      site {
-        siteMetadata {
-          title
-          description
-        }
-      }
-    }
     query new {
       allMarkdownRemark {
         edges {
@@ -62,8 +54,11 @@ const useSiteMetadata = () => {
   `
 }
 
-const LoadBoard = ({ edges }) => {
-  const { path, title } = useSiteMetadata()
+const LoadBoard = ({ useSiteMetadata }) => {
+  const { allMarkdownRemark } = allMarkdownRemark.edges.node.frontmatter
+  const { edges } = edges.node.frontmatter
+  const { node } = node.frontmatter
+  const { frontmatter } = frontmatter
   return (
     <Helmet>
       <title>{"Load Board"}</title>
