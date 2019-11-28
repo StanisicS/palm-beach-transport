@@ -2,15 +2,16 @@ backend:
   name: github
   repo: StanisicS/palm-beach-transport
 
-media_folder: static/assets
+media_folder: src/posts
 
 collections:
   - name: load-board
     label: Load Board
-    folder: src/pages
+    folder: src/posts
     create: true
     fields:
       - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
+      - {label: Image, name: image, widget: image}
       - { name: body, label: Body, widget: markdown }
