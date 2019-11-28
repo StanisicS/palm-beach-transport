@@ -56,7 +56,7 @@ const useSiteMetadata = () => {
 
 function LoadBoard(data, edges, site) {
   <Helmet>
-    <title>{site.siteMetadata.title}</title>
+    <title>{"Load Board"}</title>
     <Layout>
       <SEO title="Load Board" />
       <Kanta>
