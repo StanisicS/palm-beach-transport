@@ -37,7 +37,7 @@ const Date = styled.p`
   font-style: italic;
 `
 
-export default function LoadBoard({ data }) {
+const LoadBoard = ({ data }) => {
                  const { edges: posts } = data.allMarkdownRemark
                  return (
                    <Helmet>
@@ -73,3 +73,5 @@ export default function LoadBoard({ data }) {
                     </Helmet>
                     )
                   }
+                  
+                  export default LoadBoard
