@@ -74,7 +74,6 @@ const LoadBoard = edges => {
               <h2>Available Loads</h2>
               <ul>
                 {edges.map(edge => {
-                  const { edges } = data.allMarkdownRemark
                   const { path, title } = edge.node.frontmatter
                   return (
                     <Posts key={path}>
