@@ -37,6 +37,7 @@
     "gatsby-transformer-sharp": "^2.2.5",
     "mdbreact": "^4.22.1",
     "netlify-cms-app": "^2.9.7",
+    "netlify-identity-widget": "^1.5.5",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
