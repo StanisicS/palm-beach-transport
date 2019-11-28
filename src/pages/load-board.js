@@ -47,6 +47,18 @@ const useSiteMetadata = () => {
         }
       }
     }
+    query new {
+      allMarkdownRemark {
+        edges {
+          node {
+            frontmatter {
+              path
+              title
+            }
+          }
+        }
+      }
+    }
   `
 }
 
@@ -54,7 +66,7 @@ const LoadBoard = ({ children }) => {
   const { site, file } = useSiteMetadata()
   return (
     <Helmet>
-      <title>{site.siteMetadata.title}</title>
+      <title>{"Load Board"}</title>
       <Layout>
         <SEO title="Load Board" />
         <Kanta>
