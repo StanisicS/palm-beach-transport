@@ -40,7 +40,7 @@ const Date = styled.p`
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-const LoadBoard = () => {
+const LoadBoard = edges => {
   const data = useStaticQuery(graphql`
     {
       markdownRemark {
@@ -62,31 +62,35 @@ const LoadBoard = () => {
       }
     }
   `)
-  return <pre>{JSON.stringify(data, null, 4)}
-    <Helmet>
-      <title>{"Load Board"}</title>
-      <Layout>
-        <SEO title="Load Board" />
-        <Kanta>
-          <MDBContainer>
-            <h2>Available Loads</h2>
-            <ul>
-              {edges.map(edge => {
-                const { path, title } = edge.node.frontmatter
-                return (
-                  <Posts key={path}>
-                    <StyledLink to={path}>
-                      <Date>{title}</Date>
-                    </StyledLink>
-                  </Posts>
-                )
-              })}
-            </ul>
-          </MDBContainer>
-        </Kanta>
-      </Layout>
-    </Helmet>
+  return (
+    <pre>
+      {JSON.stringify(data, null, 4)}
+      <Helmet>
+        <title>{"Load Board"}</title>
+        <Layout>
+          <SEO title="Load Board" />
+          <Kanta>
+            <MDBContainer>
+              <h2>Available Loads</h2>
+              <ul>
+                {edges.map(edge => {
+                  const { edges } = data.allMarkdownRemark
+                  const { path, title } = edge.node.frontmatter
+                  return (
+                    <Posts key={path}>
+                      <StyledLink to={path}>
+                        <Date>{title}</Date>
+                      </StyledLink>
+                    </Posts>
+                  )
+                })}
+              </ul>
+            </MDBContainer>
+          </Kanta>
+        </Layout>
+      </Helmet>
     </pre>
+  )
 }
 
 export default LoadBoard
