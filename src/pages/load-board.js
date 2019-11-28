@@ -49,37 +49,35 @@ const useSiteMetadata = () => {
     }
   `
 
-  class Board extends React.Component {
-    render() {
-      const { data } = this.props
-      const { edges } = data.allMarkdownRemark
-      const { site } = useSiteMetadata
-
-      return (
-        <Helmet>
-          <title>{site.siteMetadata.title}</title>
-          <Layout>
-            <SEO title="Load Board" />
-            <Kanta>
-              <MDBContainer>
-                <h2>Available Loads</h2>
-                <ul>
-                  {edges.map(edge => {
-                    const { path, title } = edge.node.frontmatter
-                    return (
-                      <Posts key={path}>
-                        <StyledLink to={path}>
-                          <Date>{title}</Date>
-                        </StyledLink>
-                      </Posts>
-                    )
-                  })}
-                </ul>
-              </MDBContainer>
-            </Kanta>
-          </Layout>
-        </Helmet>
-      )
-    }
-  }
+  const data = this.props
+  const edges = data.allMarkdownRemark
+  const site = useSiteMetadata
 }
+
+function LoadBoard(data, edges, site) {
+  <Helmet>
+    <title>{site.siteMetadata.title}</title>
+    <Layout>
+      <SEO title="Load Board" />
+      <Kanta>
+        <MDBContainer>
+          <h2>Available Loads</h2>
+          <ul>
+            {edges.map(edge => {
+              const { path, title } = edge.node.frontmatter
+              return (
+                <Posts key={path}>
+                  <StyledLink to={path}>
+                    <Date>{title}</Date>
+                  </StyledLink>
+                </Posts>
+              )
+            })}
+          </ul>
+        </MDBContainer>
+      </Kanta>
+    </Layout>
+  </Helmet>
+}
+
+export default LoadBoard
