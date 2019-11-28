@@ -10,8 +10,8 @@ collections:
     folder: src/posts
     create: true
     fields:
-      - { name: path, label: Path }
+      - { name: path, label: Path, widget: path }
       - { name: date, label: Date, widget: date }
       - { name: body, label: Body, widget: markdown }
-      - { name: title, label: Title }
-      - { label: Image, : image, widget: image }
+      - { name: title, label: Title, widget: title }
+      - { name: image, label: Image, widget: image }
