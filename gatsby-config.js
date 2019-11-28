@@ -100,7 +100,7 @@ module.exports = {
       resolve: "gatsby-plugin-netlify-identity-widget",
       options: {
         container: "#netlify-modal",
-        https://www.palmbeachtrans.com/.netlify/identity
+        APIUrl: "https://www.palmbeachtrans.com/.netlify/identity"
       },
     },
   ],
