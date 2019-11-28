@@ -62,8 +62,8 @@ const useSiteMetadata = () => {
   `
 }
 
-const LoadBoard = ({ children }) => {
-  const { site, file } = useSiteMetadata()
+const LoadBoard = ({ edges }) => {
+  const { path, title } = useSiteMetadata()
   return (
     <Helmet>
       <title>{"Load Board"}</title>
