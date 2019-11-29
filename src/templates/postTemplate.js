@@ -107,7 +107,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { Link, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
 import styled from "styled-components"

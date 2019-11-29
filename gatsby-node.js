@@ -1,5 +1,4 @@
 // to create the page we need access to the blog post template
-const path = require("path")
 //   return graphql(`
 //     {
 //       allMarkdownRemark(
