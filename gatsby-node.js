@@ -1,5 +1,5 @@
 // to create the page we need access to the blog post template
-
+const path = require("path")
 //   return graphql(`
 //     {
 //       allMarkdownRemark(
@@ -76,34 +76,40 @@
 //     })
 //   })
 // }
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions, reporter }) => {
   // **Note:** The graphql function call returns a Promise
   // see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise for more info
-  const { createPage } = actions
-  const result = await graphql(`
-    query {
-      allMarkdownRemark {
-        edges {
-          node {
-            frontmatter {
-              path
+  const { createPage } = actions`
+  const result = await graphql(
+      {
+        allMarkdownRemark(limit: 1000) {
+          edges {
+            node {
+              frontmatter {
+                path
+              }
             }
           }
         }
       }
-    }
-  `)
+    `
+
+  // Handle errors
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
+  }
+  // Create pages for each markdown file.
+  const postTemplate = path.resolve(`src/templates/postTemplate.js`)
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    // you can see node value in the screenshot
-    const path = require("path")
-    path.resolve("src/templates/postTemplate.js")
+    const path = node.frontmatter.path
     createPage({
-      path: node.frontmatter.path,
-      component: "src/templates/postTemplate.js",
+      path,
+      component: postTemplate,
+      // In your blog post template's graphql query, you can use path
+      // as a GraphQL variable to query for data from the markdown file.
       context: {
-        /*
-              the value passed in the context will be available for you to use in your page queries as a GraphQL variable, as per the template snippet */
-        pathSlug: "/load-board/",
+        path,
       },
     })
   })
