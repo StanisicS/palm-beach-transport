@@ -8,9 +8,8 @@ import {
   Title,
   Text,
 } from "gatsby-theme-material-foundry"
-import { slugify } from "../utils"
-import { Grid, Divider, Container, Box } from "@material-ui/core"
-import EventList, { GenerateTags } from "../components/event-list"
+
+import { Grid, Divider, Container, Box } from "@material-ui/
 
 const LoadBoard = ({ data }) => {
   const { edges } = data.allMarkdownRemark

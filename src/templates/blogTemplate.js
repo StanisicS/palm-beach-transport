@@ -1,6 +1,18 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Image from "gatsby-image"
+import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
+import styled from "styled-components"
+
+const Kanta = styled.div`
+  margin: 4rem auto;
+  padding: 1px;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
 
 const Template = ({ data }) => {
   const { markdownRemark } = data
