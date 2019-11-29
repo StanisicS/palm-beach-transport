@@ -17,7 +17,7 @@ const Kanta = styled.div`
 `
 
 export default function Template({ data }) {
-  const post = data.allMarkdownRemark
+  const post = data.allMarkdownRemark.edges.node
   useStaticQuery(graphql`
     {
       allMarkdownRemark {
@@ -35,40 +35,43 @@ export default function Template({ data }) {
         }
       }
       file(relativePath: { eq: "capture.png" }) {
-           childImageSharp {
-             # Specify the image processing specifications right in the query.
-             # Makes it trivial to update as your page's design changes.
-             fluid(maxWidth: 900) {
-               ...GatsbyImageSharpFluid
-             }
-           }
-         }
-       }
-     `
-   )
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(maxWidth: 900) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
 
-  return <pre>{JSON.stringify(data, null, 4)}
-  <Layout>
-      <Kanta>
-         <MDBContainer>
-           <br />
-           <div className="blog-post-container">
-             {" "}
-             <div className="blog-post">
-              {" "} <h1>{post.frontmatter.title}</h1> <h2>{post.frontmatter.date}</h2>{" "}
-               <Img fluid={data.file.childImageSharp.fluid} />
-              <div
-                 className="blog-post-content"
-                 dangerouslySetInnerHTML={{ __html: post.html }}
-               />{" "}
-            </div>{" "}
-           </div>
-         </MDBContainer>
-       </Kanta>
-     </Layout>   
-     </pre>
-  
- }
+  return (
+    <pre>
+      {JSON.stringify(data, null, 4)}
+      <Layout>
+        <Kanta>
+          <MDBContainer>
+            <br />
+            <div className="blog-post-container">
+              {" "}
+              <div className="blog-post">
+                {" "}
+                <h1>{post.frontmatter.title}</h1>{" "}
+                <h2>{post.frontmatter.date}</h2>{" "}
+                <Img fluid={data.file.childImageSharp.fluid} />
+                <div
+                  className="blog-post-content"
+                  dangerouslySetInnerHTML={{ __html: post.html }}
+                />{" "}
+              </div>{" "}
+            </div>
+          </MDBContainer>
+        </Kanta>
+      </Layout>
+    </pre>
+  )
+}
 
 // export default function Template({ data }) {
 //   const post = data.markdownRemark
@@ -120,4 +123,4 @@ export default function Template({ data }) {
 //     `
 //   )
 //   return data
-// 
+//
