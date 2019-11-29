@@ -143,7 +143,8 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
     }
   )`
 }
-results.data.markdownRemark.frontmatter.forEach(({ slug }) => {
+
+ const result.data.markdownRemark.frontmatter.forEach(({ slug }) => {
   const post = data.markdownRemark
   createPage({
     path: `/load-board/${post.slug}/`,

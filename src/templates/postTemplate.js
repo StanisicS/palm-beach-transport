@@ -161,7 +161,7 @@ export default function Template({ data }) {
             <Image
               fluid={post.image.childImageSharp.fluid}
               alt={post.frontmatter.title}
-              dangerouslySetInnerHTML={{ __html: product.description }}
+              dangerouslySetInnerHTML={{ __html: post.html }}
             />
           </div>
         </MDBContainer>
