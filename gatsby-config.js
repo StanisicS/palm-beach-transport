@@ -6,34 +6,14 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-netlify-cms`,
-    `gatsby-plugin-catch-links`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 1200,
-            },
-          },
-        ],
-      },
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/pages`,
+        path: `${__dirname}/src/markdown-pages`,
+        name: "markdown-pages",
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `${__dirname}/src/posts`,
-      },
-    },
+    "gatsby-transformer-remark",
     // {
     //   resolve: `gatsby-plugin-netlify-identity`,
     //   options: {
@@ -69,8 +49,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Palm Beach Transport`,
-        short_name: `PBT`,
+        name: `GatsbyJS`,
+        short_name: `GatsbyJS`,
         start_url: `/`,
         background_color: `#E8ECEB`,
         theme_color: `#FCB104`,
@@ -96,12 +76,5 @@ module.exports = {
         },
       },
     },
-    // {
-    //   resolve: "gatsby-plugin-netlify-identity-widget",
-    //   options: {
-    //     container: "#netlify-modal",
-    //     APIUrl: "https://www.palmbeachtrans.com/.netlify/identity"
-    //   },
-    // },
   ],
 }
