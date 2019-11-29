@@ -17,33 +17,36 @@ const Kanta = styled.div`
 `
 
 export default function Template({ data }) {
-  const post = data.allMarkdownRemark.edges.node
-  useStaticQuery(graphql`
-    {
-      allMarkdownRemark {
-        edges {
-          node {
-            frontmatter {
-              title
-              image
-              date(formatString: "MMMM DD, YYYY")
+  const useSiteMetadata = () => {
+  const data = useStaticQuery(
+    graphql`
+      query BlogPost {
+        allMarkdownRemark {
+          edges {
+            node {
+               fields {
+                slug
+              }
+              frontmatter {
+                path
+                title
+                image
+                date(formatString: "MMMM DD, YYYY")
             }
-            fields {
-              slug
+          }
+        }
+        }
+         file(relativePath: { eq: "capture.png" }) {
+          childImageSharp {
+            # Specify the image processing specifications right in the query.
+            # Makes it trivial to update as your page's design changes.
+            fluid(maxWidth: 900) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
       }
-      file(relativePath: { eq: "capture.png" }) {
-        childImageSharp {
-          # Specify the image processing specifications right in the query.
-          # Makes it trivial to update as your page's design changes.
-          fluid(maxWidth: 900) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
+      
   `)
 
   return (
@@ -57,8 +60,10 @@ export default function Template({ data }) {
               {" "}
               <div className="blog-post">
                 {" "}
-                <h1>{post.frontmatter.title}</h1>{" "}
-                <h2>{post.frontmatter.date}</h2>{" "}
+                <h1>
+                  {data.allMarkdownRemark.edges.node.frontmatter.title}
+                </h1>{" "}
+                <h2>{data.allMarkdownRemark.edges.node.frontmatter.date}</h2>{" "}
                 <Img fluid={data.file.childImageSharp.fluid} />
                 <div
                   className="blog-post-content"
@@ -71,8 +76,7 @@ export default function Template({ data }) {
       </Layout>
     </pre>
   )
-}
-
+  }
 // export default function Template({ data }) {
 //   const post = data.markdownRemark
 //   // let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
