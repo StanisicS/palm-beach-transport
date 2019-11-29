@@ -7,7 +7,7 @@ import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
 import styled from "styled-components"
 import { Helmet } from "react-helmet"
 import SEO from "../components/seo"
-import Img from "gatsby-images"
+// import Img from "gatsby-images"
 
 const StyledLink = styled(props => <Link {...props} />)`
 background: #f4f4f4;
