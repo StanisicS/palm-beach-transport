@@ -7,7 +7,7 @@ import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
 import styled from "styled-components"
 import { Helmet } from "react-helmet"
 import SEO from "../components/seo"
-import Image from "gatsby-images"
+import Img from "gatsby-images"
 
 const StyledLink = styled(props => <Link {...props} />)`
 background: #f4f4f4;
@@ -39,10 +39,7 @@ export default function Template({
       <div className="blog-post">
         <h1>{frontmatter.title}</h1>
         <h2>{frontmatter.date}</h2>
-        <Image
-          fluid={post.image.childImageSharp.fluid}
-          alt={post.frontmatter.title}
-        />
+        <Img fluid={data.file.childImageSharp.fluid}
         <div
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: html }}
@@ -51,23 +48,27 @@ export default function Template({
     </div>
   )
 }
-export const pageQuery = graphql`
-  query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        path
-        title
-        file(relativePath: { eq: "capture.pgn" }) {
+const useSiteMetadata = () => {
+  const data = useStaticQuery(
+    graphql`
+      query SITE_METADATA_AGAIN($path: String!) {
+        markdownRemark(frontmatter: { path: { eq: $path } }) {
+          frontmatter {
+            image
+            date(formatString: "MMMM DD, YYYY")
+            path
+            title
+          }
+        }
+         file(relativePath: { eq: "capture.png" }) {
           childImageSharp {
             # Specify the image processing specifications right in the query.
-            fluid {
+            # Makes it trivial to update as your page's design changes.
+            fluid(maxWidth: 900) {
               ...GatsbyImageSharpFluid
             }
           }
-        }
       }
-    }
-  }
-`
+    `
+  )
+}
