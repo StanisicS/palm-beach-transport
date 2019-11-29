@@ -69,6 +69,4 @@ const useSiteMetadata = () => {
             }
           }
       }
-    `
-  )
-}
+}`)}
