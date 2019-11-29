@@ -100,6 +100,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             node {
               frontmatter {
                 path
+                title
               }
             }
           }
@@ -127,3 +128,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
 }
+posts.forEach(({ data }) => {
+  const posts = data.MarkdownRemark
+  createPage({
+    path: posts.frontmatter.path,
+    component: path.resolve(`./src/templates/postTemplate.js`),
+    // values in the context object are passed in as variables to page queries
+    context: {
+      title: posts.frontmatter.title, // "Using a Theme"
+    },
+  })
+})
