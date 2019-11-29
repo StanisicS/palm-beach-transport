@@ -46,9 +46,9 @@ const LoadBoard = edges => {
     {
       markdownRemark {
         frontmatter {
-          image
           title
           path
+          image
         }
       }
       allMarkdownRemark {
@@ -89,7 +89,7 @@ const LoadBoard = edges => {
       </Helmet>
     </pre>
   )
-
+              
 
 export default LoadBoard
-
+              

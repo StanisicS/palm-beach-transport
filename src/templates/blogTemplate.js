@@ -1,4 +1,3 @@
-
 import React from "react"
 import { graphql } from "gatsby"
 
@@ -34,6 +33,7 @@ export default function Template({
 }) {
   const { markdownRemark } = data // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark
+  const post = data.markdownRemark.html.frontmatter
   return (
     <div className="blog-post-container">
       <div className="blog-post">
