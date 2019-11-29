@@ -99,7 +99,7 @@ exports.createPages = async ({ graphql, actions }) => {
     // you can see node value in the screenshot
     const path = node.frontmatter.path
     createPage({
-      path,
+      path: node.frontmatter.path,
       component: postTemplate.js,
       context: {
         /*
