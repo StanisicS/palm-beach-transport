@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Stevan Stanisic <st@evansit.rs>",
   "dependencies": {
+    "@babel/core": "^7.7.4",
     "@material-ui/core": "4.5.1",
     "@material-ui/icons": "4.2.1",
     "@mdx-js/mdx": "^1.5.1",
