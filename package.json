@@ -10,7 +10,6 @@
     "classnames": "2.2.6",
     "clsx": "1.0.4",
     "codesandbox": "^2.1.10",
-    "dotenv": "^8.2.0",
     "final-form": "^4.18.5",
     "gatsby": "2.13.77",
     "gatsby-image": "^2.2.8",
@@ -45,7 +44,6 @@
     "validator": "^11.1.0"
   },
   "devDependencies": {
-    "env-cmd": "^10.0.1",
     "eslint": "^6.6.0",
     "eslint-plugin-react": "^7.16.0",
     "prettier": "^1.18.2"
@@ -55,7 +53,7 @@
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",
-    "develop": "env-cmd gatsby develop",
+    "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
