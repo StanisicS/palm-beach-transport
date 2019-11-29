@@ -17,6 +17,9 @@ exports.createPages = ({ graphql, actions }) => {
               node {
                 frontmatter {
                   path
+                  data
+                  title
+                  image
                 }
               }
             }
@@ -26,11 +29,13 @@ exports.createPages = ({ graphql, actions }) => {
     ).then(result => {
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
         const path = node.frontmatter.path
+        const image = node.frontmatter.image
         createPage({
           path,
           component: blogPostTemplate,
           context: {
             pathSlug: path,
+            picture: image,
           },
         })
 
