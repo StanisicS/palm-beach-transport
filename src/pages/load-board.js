@@ -61,7 +61,7 @@ export default LoadBoard = edges => {
       }
     }
   `)
-}
+
 return (
   <pre>
     {JSON.stringify(data, null, 4)}
@@ -87,3 +87,4 @@ return (
     </Helmet>
   </pre>
 )
+              }

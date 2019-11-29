@@ -39,7 +39,8 @@ export default function Template({
       <div className="blog-post">
         <h1>{frontmatter.title}</h1>
         <h2>{frontmatter.date}</h2>
-        <Img fluid={data.file.childImageSharp.fluid}
+        <img
+          fluid={data.file.childImageSharp.fluid}
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: html }}
         />
@@ -60,13 +61,16 @@ const useSiteMetadata = () => {
             title
           }
         }
-         file(relativePath: { eq: "capture.png" }) {
+        file(relativePath: { eq: "capture.png" }) {
           childImageSharp {
             # Specify the image processing specifications right in the query.
             # Makes it trivial to update as your page's design changes.
             fluid(maxWidth: 900) {
-              ...GatsbyImageSharpFluid
+              tracedSVG
             }
           }
+        }
       }
-}`)}
+    `
+  )
+}
