@@ -1,4 +1,3 @@
-const path = require("path")
 // to create the page we need access to the blog post template
 
 //   return graphql(`
@@ -96,9 +95,10 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     // you can see node value in the screenshot
-    const path = node.frontmatter.path
+    const path = require("path")
+    path.resolve("src/templates/postTemplate.js")
     createPage({
-      path,
+      path: node.frontmatter.path,
       component: "src/templates/postTemplate.js",
       context: {
         /*
