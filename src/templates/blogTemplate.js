@@ -53,6 +53,7 @@ const useSiteMetadata = () => {
     graphql`
       query SITE_METADATA_AGAIN($path: String!) {
         markdownRemark(frontmatter: { path: { eq: $path } }) {
+          html
           frontmatter {
             image
             date(formatString: "MMMM DD, YYYY")
