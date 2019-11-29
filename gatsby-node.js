@@ -80,7 +80,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // **Note:** The graphql function call returns a Promise
   // see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise for more info
   const { createPage } = actions
-  const result = await graphql(`
+  const result = await graphql`(
       {
         allMarkdownRemark(limit: 1000) {
           edges {
@@ -91,8 +91,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
           }
         }
-      }
-    `
+      } 
+    )`
 
   // Handle errors
   if (result.errors) {
