@@ -94,17 +94,16 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-  const postTemplate = "src/templates/postTemplate.js"
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     // you can see node value in the screenshot
     const path = node.frontmatter.path
     createPage({
       path,
-      component: "src/templates/postTemplate.js";
+      component: "src/templates/postTemplate.js",
       context: {
         /*
               the value passed in the context will be available for you to use in your page queries as a GraphQL variable, as per the template snippet */
-        pathSlug: "/load-board/"
+        pathSlug: "/load-board/",
       },
     })
   })
