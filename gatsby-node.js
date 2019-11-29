@@ -1,9 +1,5 @@
 const path = require("path")
-
-exports.createPages = ({ boundActionCreators, graphql }) => {
-  const { createPage } = boundActionCreators
-
-  // to create the page we need access to the blog post template
+// to create the page we need access to the blog post template
 
 //   return graphql(`
 //     {
@@ -81,42 +77,34 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 //     })
 //   })
 // }
-
-const postTemplate = path.resolve("src/templates/postTemplate.js")
-    resolve(
-      graphql(
-        `
-          {
-            allMarkdownRemark {
-              edges {
-                node {
-                  frontmatter {
-                    path
-                  }
-                }
-              }
+exports.createPages = async ({ graphql, actions }) => {
+  // **Note:** The graphql function call returns a Promise
+  // see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise for more info
+  const { createPage } = actions
+  const result = await graphql(`
+    query {
+      allMarkdownRemark {
+        edges {
+          node {
+            frontmatter {
+              path
             }
           }
-        `
-      ).then(result => {
-        if (result.errors) {
-          console.log(result.errors)
-          reject(result.errors)
         }
-        result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-          // you can see node value in the screenshot
-          const path = node.frontmatter.path
-          createPage({
-            path,
-            component: postTemplate,
-            context: {
-              /*
+      }
+    }
+  `)
+  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    // you can see node value in the screenshot
+    const path = node.frontmatter.path
+    createPage({
+      path: node.frontmatter.path,
+      component: path.resolve(`./src/templates/postTemplate.js`),
+      context: {
+        /*
               the value passed in the context will be available for you to use in your page queries as a GraphQL variable, as per the template snippet */
-              pathSlug: path,
-            },
-          })
-          resolve()
-        })
-      })
-    )
-  }
+        pathSlug: node.frontmatter.path,
+      },
+    })
+  })
+}
