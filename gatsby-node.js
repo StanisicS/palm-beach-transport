@@ -128,29 +128,63 @@ const path = require("path")
 //     })
 //   })
 // }
-exports.createPages = async ({ actions: { createPage }, graphql }) => {
-  const result = await graphql`(
-    query($slug: String!) {
-      markdownRemark {(slug: { eq: $slug }) {
-        frontmatter {
-          title
-          path
-          date
-          image
+// exports.createPages = async ({ actions: { createPage }, graphql }) => {
+//   const result = await graphql`(
+//     query($slug: String!) {
+//       markdownRemark {(slug: { eq: $slug }) {
+//         frontmatter {
+//           title
+//           path
+//           date
+//           image
+//           }
+//         }
+//       },
+//     }
+//   )`
+// }
+
+// results.data.markdownRemark.frontmatter.forEach(({ slug }) => {
+//   const post = data.markdownRemark
+//   createPage({
+//     path: `/load-board/${post.slug}/`,
+//     component: require.resolve("./src/templates/postTemplate.js"),
+//     context: {
+//       slug: post.slug,
+//     },
+//   })
+// })
+
+const path = require(`path`)
+exports.createPages = async ({ actions, graphql, reporter }) => {
+  const { createPage } = actions
+  const blogPostTemplate = path.resolve(`src/templates/blogTemplate.js`)
+  const result = await graphql(`
+    {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            frontmatter {
+              path
+            }
           }
         }
-      },
+      }
     }
-  )`
-}
-
- const result.data.markdownRemark.frontmatter.forEach(({ slug }) => {
-  const post = data.markdownRemark
-  createPage({
-    path: `/load-board/${post.slug}/`,
-    component: require.resolve("./src/templates/postTemplate.js"),
-    context: {
-      slug: post.slug,
-    },
+  `)
+  // Handle errors
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
+  }
+  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    createPage({
+      path: node.frontmatter.path,
+      component: blogPostTemplate,
+      context: {}, // additional data can be passed via context
+    })
   })
-})
+}
