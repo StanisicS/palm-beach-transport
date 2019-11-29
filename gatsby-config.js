@@ -69,8 +69,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `GatsbyJS`,
-        short_name: `GatsbyJS`,
+        name: `Palm Beach Transport`,
+        short_name: `PBT`,
         start_url: `/`,
         background_color: `#E8ECEB`,
         theme_color: `#FCB104`,
@@ -96,12 +96,12 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: "gatsby-plugin-netlify-identity-widget",
-      options: {
-        container: "#netlify-modal",
-        APIUrl: "https://www.palmbeachtrans.com/.netlify/identity"
-      },
-    },
+    // {
+    //   resolve: "gatsby-plugin-netlify-identity-widget",
+    //   options: {
+    //     container: "#netlify-modal",
+    //     APIUrl: "https://www.palmbeachtrans.com/.netlify/identity"
+    //   },
+    // },
   ],
 }
