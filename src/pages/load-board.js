@@ -81,7 +81,7 @@ const LoadBoard = edges => {
                       </StyledLink>
                     </Posts>
                   )
-                })}
+                )}
               </ul>
             </MDBContainer>
           </Kanta>
@@ -93,3 +93,4 @@ const LoadBoard = edges => {
 
 export default LoadBoard
               
+                }
