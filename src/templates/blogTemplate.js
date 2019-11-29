@@ -18,7 +18,7 @@ const Template = ({ data }) => {
   const { markdownRemark } = data
   const title = markdownRemark.frontmatter.title
   const html = markdownRemark.html
-  const image = markdownRemark.frontmatter.image
+  // const image = markdownRemark.frontmatter.image
   return (
     <div>
       <h1>{title}</h1>
