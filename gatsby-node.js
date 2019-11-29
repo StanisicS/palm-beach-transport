@@ -105,7 +105,7 @@ const path = require("path")
 //             }
 //           }
 //         }
-//       } 
+//       }
 //     )`
 
 //   // Handle errors
@@ -140,16 +140,16 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
           }
         }
       },
-  `
-  
-  results.data.markdownRemark.frontmatter.forEach((({ slug }) => {
-    const post = data.markdownRemark
-    createPage({
-      path: `/load-board/${post.slug}/`,
-      component: require.resolve("./src/templates/postTemplate.js"),
-      context: {
-        slug: post.slug,
-      },
-    })
+    }
+  )`
+}
+results.data.markdownRemark.frontmatter.forEach(({ slug }) => {
+  const post = data.markdownRemark
+  createPage({
+    path: `/load-board/${post.slug}/`,
+    component: require.resolve("./src/templates/postTemplate.js"),
+    context: {
+      slug: post.slug,
+    },
   })
-  
+})
