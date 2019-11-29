@@ -59,9 +59,11 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
+        file(relativePath: { eq: "capture.pgn" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          fluid {
+            ...GatsbyImageSharpFluid
             }
           }
         }
