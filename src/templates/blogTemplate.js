@@ -60,13 +60,14 @@ export const pageQuery = graphql`
         path
         title
         file(relativePath: { eq: "capture.pgn" }) {
-        childImageSharp {
-          # Specify the image processing specifications right in the query.
-          fluid {
-            ...GatsbyImageSharpFluid
+          childImageSharp {
+            # Specify the image processing specifications right in the query.
+            fluid {
+              ...GatsbyImageSharpFluid
             }
           }
         }
       }
     }
+  }
 `
