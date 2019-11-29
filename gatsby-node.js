@@ -2,43 +2,43 @@ const path = require("path")
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators
-  const postTemplate = path.resolve("src/templates/postTemplate.js")
+
   // to create the page we need access to the blog post template
 
-  return graphql(`
-    {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
-        edges {
-          node {
-            excerpt(pruneLength: 250)
-            html
-            id
-            frontmatter {
-              date
-              path
-              title
-            }
-          }
-        }
-      }
-    }
-  `).then(result => {
-    if (result.errors) {
-      return Promise.reject(result.errors)
-    }
+//   return graphql(`
+//     {
+//       allMarkdownRemark(
+//         sort: { order: DESC, fields: [frontmatter___date] }
+//         limit: 1000
+//       ) {
+//         edges {
+//           node {
+//             excerpt(pruneLength: 250)
+//             html
+//             id
+//             frontmatter {
+//               date
+//               path
+//               title
+//             }
+//           }
+//         }
+//       }
+//     }
+//   `).then(result => {
+//     if (result.errors) {
+//       return Promise.reject(result.errors)
+//     }
 
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      createPage({
-        path: node.frontmatter.path,
-        component: postTemplate,
-        context: {},
-      })
-    })
-  })
-}
+//     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+//       createPage({
+//         path: node.frontmatter.path,
+//         component: postTemplate,
+//         context: {},
+//       })
+//     })
+//   })
+// }
 // const path = require("path")
 // const { createFilePath } = require(`gatsby-source-filesystem`)
 // exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -81,3 +81,42 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 //     })
 //   })
 // }
+
+const postTemplate = path.resolve("src/templates/postTemplate.js")
+    resolve(
+      graphql(
+        `
+          {
+            allMarkdownRemark {
+              edges {
+                node {
+                  frontmatter {
+                    path
+                  }
+                }
+              }
+            }
+          }
+        `
+      ).then(result => {
+        if (result.errors) {
+          console.log(result.errors)
+          reject(result.errors)
+        }
+        result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+          // you can see node value in the screenshot
+          const path = node.frontmatter.path
+          createPage({
+            path,
+            component: postTemplate,
+            context: {
+              /*
+              the value passed in the context will be available for you to use in your page queries as a GraphQL variable, as per the template snippet */
+              pathSlug: path,
+            },
+          })
+          resolve()
+        })
+      })
+    )
+  }
