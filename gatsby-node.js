@@ -77,65 +77,79 @@ const path = require("path")
 //   })
 // }
 
-const { createFilePath } = require(`gatsby-source-filesystem`)
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
-  if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` })
-    createNodeField({
-      node,
-      name: `slug`,
-      value: slug,
-    })
-  }
-}
-exports.createPages = async ({ graphql, actions, reporter }) => {
-  // **Note:** The graphql function call returns a Promise
-  // see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise for more info
-  const { createPage } = actions
+// const { createFilePath } = require(`gatsby-source-filesystem`)
+// exports.onCreateNode = ({ node, getNode, actions }) => {
+//   const { createNodeField } = actions
+//   if (node.internal.type === `MarkdownRemark`) {
+//     const slug = createFilePath({ node, getNode, basePath: `pages` })
+//     createNodeField({
+//       node,
+//       name: `slug`,
+//       value: slug,
+//     })
+//   }
+// }
+// exports.createPages = async ({ graphql, actions, reporter }) => {
+//   // **Note:** The graphql function call returns a Promise
+//   // see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise for more info
+//   const { createPage } = actions
+//   const result = await graphql`(
+//       {
+//         allMarkdownRemark(limit: 1000) {
+//           edges {
+//             node {
+//               frontmatter {
+//                 path
+//                 title
+//               }
+//             }
+//           }
+//         }
+//       } 
+//     )`
+
+//   // Handle errors
+//   if (result.errors) {
+//     reporter.panicOnBuild(`Error while running GraphQL query.`)
+//     return
+//   }
+//   // Create pages for each markdown file.
+//   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+//     const path = node.frontmatter.path
+//     createPage({
+//       path: "/load-board/",
+//       component: path.resolve(`./src/templates/postTemplate.js`),
+//       // In your blog post template's graphql query, you can use path
+//       // as a GraphQL variable to query for data from the markdown file.
+//       context: {
+//         path,
+//         id: `123456`,
+//       },
+//     })
+//   })
+// }
+exports.createPages = async ({ actions: { createPage }, graphql }) => {
   const result = await graphql`(
-      {
-        allMarkdownRemark(limit: 1000) {
-          edges {
-            node {
-              frontmatter {
-                path
-                title
-              }
-            }
+    query($slug: String!) {
+      markdownRemark {(slug: { eq: $slug }) {
+        frontmatter {
+          title
+          path
+          date
+          image
           }
         }
-      } 
-    )`
-
-  // Handle errors
-  if (result.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`)
-    return
-  }
-  // Create pages for each markdown file.
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    const path = node.frontmatter.path
+      },
+  `
+  
+  results.data.markdownRemark.frontmatter.forEach((({ slug }) => {
+    const post = data.markdownRemark
     createPage({
-      path: "/load-board/",
-      component: path.resolve(`./src/templates/postTemplate.js`),
-      // In your blog post template's graphql query, you can use path
-      // as a GraphQL variable to query for data from the markdown file.
+      path: `/load-board/${post.slug}/`,
+      component: require.resolve("./src/templates/postTemplate.js"),
       context: {
-        path,
-        id: `123456`,
+        slug: post.slug,
       },
     })
   })
-}
-posts.forEach(({ data }) => {
-  const posts = data.MarkdownRemark
-  createPage({
-    path: posts.frontmatter.path,
-    component: path.resolve(`./src/templates/postTemplate.js`),
-    // values in the context object are passed in as variables to page queries
-    context: {
-      title: posts.frontmatter.title, // "Using a Theme"
-    },
-  })
-})
+  )

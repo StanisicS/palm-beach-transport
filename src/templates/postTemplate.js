@@ -46,7 +46,7 @@
 //           }
 //         }
 //       }
-      
+
 //   `)
 
 //   return (
@@ -92,7 +92,7 @@ background: #f4f4f4;
 const Posts = styled.li;
 `
 
-  const Date = styled.p`
+const Date = styled.p`
   color: #777777;
   font-size: 3rem;
   font-style: italic;
@@ -107,54 +107,68 @@ const Kanta = styled.div`
   justify-content: center;
 `
 
-  export default function Template({ data }) {
-    const post = data.markdownRemark
-    // let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
-    return (
-      <Layout>
-        <Kanta>
-          <MDBContainer>
-            <br />
-            <div className="blog-post-container">
-              {" "}
-              <div className="blog-post">
-              {" "}
-                <h1>{post.frontmatter.title}</h1> <h2>{post.frontmatter.date}</h2>{" "}
-                <Img fluid={data.file.childImageSharp.fluid} />
-                <div
-                  className="blog-post-content"
-                  dangerouslySetInnerHTML={{ __html: post.html }}
-                                />{" "}
-              </div>{" "}
-                    </div>
-          </MDBContainer>
-        </Kanta>
-      </Layout>
-    )
-  }
+// export default function Template({ data }) {
+//   const post = data.markdownRemark
+//   // let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
+//   return (
+//     <Layout>
+//       <Kanta>
+//         <MDBContainer>
+//           <br />
+//           <div className="blog-post-container">
+//             {" "}
+//             <div className="blog-post">
+//             {" "}
+//               <h1>{post.frontmatter.title}</h1> <h2>{post.frontmatter.date}</h2>{" "}
+//               <Img fluid={data.file.childImageSharp.fluid} />
+//               <div
+//                 className="blog-post-content"
+//                 dangerouslySetInnerHTML={{ __html: post.html }}
+//                               />{" "}
+//             </div>{" "}
+//                   </div>
+//         </MDBContainer>
+//       </Kanta>
+//     </Layout>
+//   )
+// }
 
-  const useSiteMetadata = () => {
-    const data = useStaticQuery(
-      graphql`
-      query BlogPostByPath($path: String!) {
-        markdownRemark(frontmatter: { path: { eq: $path } }) {
-          frontmatter {
-            image
-            date(formatString: "MMMM DD, YYYY")
-            title
-            path
-          }
-        }
-        file(relativePath: { eq: "capture.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 900) {
-              ...GatsbyImageSharpFluid
+export const query = graphql`
+         query($slug: String!) {
+           markdownRemark(slug: { eq: $slug }) {
+             frontmatter {
+              title
+              path
+              date
+              image {
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
             }
           }
-        }
-      }   
-`
-
+        `
+export default function Template({ data }) {
+  const post = data.markdownRemark
+  return (
+    <Layout>
+      <Kanta>
+        <MDBContainer>
+          <div>
+            <h1>{post.frontmatter.title}</h1>
+            <Image
+              fluid={post.image.childImageSharp.fluid}
+              alt={post.frontmatter.title}
+              dangerouslySetInnerHTML={{ __html: product.description }}
+            />
+          </div>
+        </MDBContainer>
+      </Kanta>
+    </Layout>
+  )
+}
 // class Board extends React.Component {
 //   render() {
 //     const { data } = this.props
@@ -183,4 +197,3 @@ const Kanta = styled.div`
 //     )
 //   }
 // }
-
