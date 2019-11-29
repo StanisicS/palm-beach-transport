@@ -39,9 +39,7 @@ const Date = styled.p`
   font-style: italic;
 `
 
-
-
-const LoadBoard = edges => {
+export default LoadBoard = edges => {
   const data = useStaticQuery(graphql`
     {
       markdownRemark {
@@ -63,34 +61,29 @@ const LoadBoard = edges => {
       }
     }
   `)
-  return (
-    <pre>
-      {JSON.stringify(data, null, 4)}
-      <Helmet>
-        <title>{"Load Board"}</title>
-        <Layout>
-          <SEO title="Load Board" />
-          <Kanta>
-            <MDBContainer>
-              <h2>Available Loads</h2>
-              <ul>
-                {data.allMarkdownRemark.edges.map(({ node }) => (
-                    <Posts key={path}>
-                      <StyledLink to={path}>
-                        <Date>{title}</Date>
-                      </StyledLink>
-                    </Posts>
-                  )
-                )}
-              </ul>
-            </MDBContainer>
-          </Kanta>
-        </Layout>
-      </Helmet>
-    </pre>
-  )
-              
-
-export default LoadBoard
-              
-                }
+}
+return (
+  <pre>
+    {JSON.stringify(data, null, 4)}
+    <Helmet>
+      <title>{"Load Board"}</title>
+      <Layout>
+        <SEO title="Load Board" />
+        <Kanta>
+          <MDBContainer>
+            <h2>Available Loads</h2>
+            <ul>
+              {data.allMarkdownRemark.edges.map(({ node }) => (
+                <Posts key={path}>
+                  <StyledLink to={path}>
+                    <Date>{title}</Date>
+                  </StyledLink>
+                </Posts>
+              ))}
+            </ul>
+          </MDBContainer>
+        </Kanta>
+      </Layout>
+    </Helmet>
+  </pre>
+)
