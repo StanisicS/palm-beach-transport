@@ -28,16 +28,7 @@ const LoadBoard = ({
 
   return (
     <Layout>
-      <div
-        style={{
-          margin: "4rem auto",
-          maxWidth: "900px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+      <div>
         {Posts}
       </div>
     </Layout>
