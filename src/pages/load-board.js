@@ -26,8 +26,20 @@ const LoadBoard = ({
     .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
     .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
 
-  return
-   <div style={{margin: "4rem auto", maxWidth: "900px", display: "flex", flexDirection: "column",  alignItems: "center", justifyContent: "center"}}>{Posts}</div>
+  return (
+    <div
+      style={{
+        margin: "4rem auto",
+        maxWidth: "900px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      {Posts}
+    </div>
+  )
 }
 
 export default LoadBoard
