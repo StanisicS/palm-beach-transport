@@ -1,3 +1,4 @@
+/* eslint-disable no-unreachable */
 import React from "react"
 import { graphql } from "gatsby"
 import PostLink from "../components/post-link"
@@ -26,7 +27,7 @@ const LoadBoard = ({
     .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
 
   return
-  ;<Kanta>{Posts}</Kanta>
+   <div style={{margin: "4rem auto", maxWidth: "900px", display: "flex", flexDirection: "column",  alignItems: "center", justifyContent: "center"}}>{Posts}</div>
 }
 
 export default LoadBoard
