@@ -27,18 +27,20 @@ const LoadBoard = ({
     .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
 
   return (
-    <div
-      style={{
-        margin: "4rem auto",
-        maxWidth: "900px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      {Posts}
-    </div>
+    <Layout>
+      <div
+        style={{
+          margin: "4rem auto",
+          maxWidth: "900px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        {Posts}
+      </div>
+    </Layout>
   )
 }
 
