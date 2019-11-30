@@ -8,7 +8,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const Kanta = styled.div`
-  margin: 4rem auto;
+  margin: 0.5 auto;
   padding: 1px;
   max-width: 900px;
   display: flex;
