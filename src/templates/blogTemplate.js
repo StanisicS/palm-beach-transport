@@ -4,6 +4,7 @@ import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import image from "../components/image"
 
 const Kanta = styled.div`
   margin: 4rem 8ren;
@@ -27,6 +28,7 @@ export default function Template({
           <Kanta className="blog-post">
             <h1>{frontmatter.title}</h1>
             <h2>{frontmatter.date}</h2>
+            <Image />
             <Kanta
               className="blog-post-content"
               dangerouslySetInnerHTML={{ __html: html }}
