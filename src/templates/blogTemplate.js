@@ -1,6 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import styled from "styled-components"
+
 
 const Kanta = styled.div`
   margin: 1rem auto;
