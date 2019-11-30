@@ -1,43 +1,34 @@
 import React from "react"
 import { graphql } from "gatsby"
-// import Image from "gatsby-image"
-import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
-import styled from "styled-components"
 
-const Kanta = styled.div`
-  margin: 4rem auto;
-  padding: 1px;
-  max-width: 900px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`
-
-const Template = ({ data }) => {
-  const { data } = markdownRemark
-  const title = markdownRemark.frontmatter.title
-  const html = markdownRemark.html
-  const image = markdownRemark.frontmatter.image
+export default function Template({
+  data, // this prop will be injected by the GraphQL query below.
+}) {
+  const { markdownRemark } = data // data.markdownRemark holds your post data
+  const { frontmatter, html } = markdownRemark
   return (
-    <div>
-      <h1>{title}</h1>
-      <img src={image} alt="" />
-      {/* <Image fluid={data.image.childImageSharp.fluid} alt={"Available Loads"} /> */}
-      <div className="blogpost" dangerouslySetInnerHTML={{ __html: html }} />
+    <div className="blog-post-container">
+      <div className="blog-post">
+        <h1>{frontmatter.title}</h1>
+        <h2>{frontmatter.date}</h2>
+        <div
+          className="blog-post-content"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      </div>
     </div>
   )
 }
 
-export const query = graphql`
-  query($pathSlug: String!) {
-    markdownRemark(frontmatter: { path: { eq: $pathSlug } }) {
+export const pageQuery = graphql`
+  query($path: String!) {
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
+        date(formatString: "MMMM DD, YYYY")
+        path
         title
       }
     }
   }
 `
-
-export default Template

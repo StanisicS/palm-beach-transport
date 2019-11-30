@@ -1,54 +1,31 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import {
-  Button,
-  DividedSection,
-  Title,
-  Text,
-} from "gatsby-theme-material-foundry"
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon } from "mdbreact"
-import styled from "styled-components"
-import { Container } from "@material-ui/core"
+import { graphql } from "gatsby"
+import PostLink from "../components/post-link"
 
-const Kanta = styled.div`
-  margin: 4rem auto;
-  padding: 1px;
-  max-width: 900px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`
+const LoadBoard = ({
+  data: {
+    allMarkdownRemark: { edges },
+  },
+}) => {
+  const Posts = edges
+    .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
+    .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
 
-const LoadBoard = ({ data }) => {
-  const { edges } = data.allMarkdownRemark
-  return (
-    <Layout>
-      <SEO title="Load Board" />
-      <Kanta>
-        <MDBContainer>
-          {edges.map(edge => {
-            const { frontmatter } = edge.node
-            return (
-              <div key={frontmatter.path}>
-                <Link to={frontmatter.path}>{frontmatter.title}</Link>
-              </div>
-            )
-          })}
-        </MDBContainer>
-      </Kanta>
-    </Layout>
-  )
+  return <div>{Posts}</div>
 }
 
-export const query = graphql`
-  query PageQuery {
-    allMarkdownRemark {
+export default LoadBoard
+
+export const pageQuery = graphql`
+  query {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
+          id
+          excerpt(pruneLength: 250)
           frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            path
             title
           }
         }
@@ -56,4 +33,3 @@ export const query = graphql`
     }
   }
 `
-export default LoadBoard
