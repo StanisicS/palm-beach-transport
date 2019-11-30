@@ -14,6 +14,7 @@ export default function Template({
 
   return (
     <Layout>
+      <Kanta>|
       <div className="blog-post-container">
         <div className="blog-post">
           <h1>{frontmatter.title}</h1>
@@ -29,6 +30,7 @@ export default function Template({
           />
         </div>
       </div>
+      </Kanta>
     </Layout>
   )
 }
