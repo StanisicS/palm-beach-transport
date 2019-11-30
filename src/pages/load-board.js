@@ -8,45 +8,52 @@ import {
   Title,
   Text,
 } from "gatsby-theme-material-foundry"
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon } from "mdbreact"
+import styled from "styled-components"
+import { Container } from "@material-ui/core"
 
-import { Grid, Divider, Container, Box } from "@material-ui/
+const Kanta = styled.div`
+  margin: 4rem auto;
+  padding: 1px;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
 
 const LoadBoard = ({ data }) => {
   const { edges } = data.allMarkdownRemark
   return (
     <Layout>
       <SEO title="Load Board" />
-      <DividedSection>
-        {edges.map(edge => {
-          const { frontmatter } = edge.node
-          return (
-            <Container key={frontmatter.path} maxWidth="md">
-             <Link to={frontmatter.path}>
-             {frontmatter.title}
-             </Link>
-            </Container>
-          )
-        })}
-      </DividedSection>
+      <Kanta>
+        <MDBContainer>
+          {edges.map(edge => {
+            const { frontmatter } = edge.node
+            return (
+              <div key={frontmatter.path}>
+                <Link to={frontmatter.path}>{frontmatter.title}</Link>
+              </div>
+            )
+          })}
+        </MDBContainer>
+      </Kanta>
     </Layout>
   )
 }
 
 export const query = graphql`
   query PageQuery {
-    allMarkdownRemark( 
-      {sort: DESC, fields: [frontmatter___date]}
-    ) {
+    allMarkdownRemark {
       edges {
         node {
           frontmatter {
             title
-            path
-            date
           }
         }
       }
-  }
+    }
   }
 `
 export default LoadBoard
