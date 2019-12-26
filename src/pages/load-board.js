@@ -8,13 +8,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const Kanta = styled.div`
-  margin: 0.5 auto;
+  margin: 1rem 1rem;
   padding: 1px;
-  max-width: 900px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 `
 
 const LoadBoard = ({
@@ -28,9 +23,7 @@ const LoadBoard = ({
 
   return (
     <Layout>
-      <div>
-        {Posts}
-      </div>
+      <Kanta>{Posts}</Kanta>
     </Layout>
   )
 }

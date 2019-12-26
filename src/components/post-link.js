@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 const StyledLink = styled(props => <Link {...props} />)`
   background: #f4f4f4;
-  color: #000000;
+  color: #FCB104;
   display: block;
   padding: 0.5rem;
   text-decoration: none;

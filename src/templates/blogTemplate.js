@@ -5,7 +5,7 @@ import styled from "styled-components"
 
 
 const Kanta = styled.div`
-  margin: 1rem auto;
+  margin: 1rem 1rem;
 `
 
 export default function Template({

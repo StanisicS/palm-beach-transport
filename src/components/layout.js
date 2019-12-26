@@ -2,15 +2,18 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import Header from "../components/header/header"
 import HeaderLinks from "../components/header/header-links"
-import DashIcon from "@material-ui/icons/Dashboard"
-import UserIcon from "@material-ui/icons/AccountCircle"
 import { graphql, useStaticQuery } from "gatsby"
 import AppFooter from "../modules/views/AppFooter"
-import withStyles from "@material-ui/core/styles/withStyles"
-import classNames from "clsx"
-import { headerStyle } from "./styles"
 import { StylesProvider } from "@material-ui/core/styles"
+import { makeStyles } from "@material-ui/core/styles"
+
 import theme from "../theme"
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    maxWidth: "100%",
+  },
+}))
 
 const useSiteMetadata = () => {
   const data = useStaticQuery(
@@ -39,9 +42,13 @@ const useSiteMetadata = () => {
 
 const TemplateWrapper = ({ children }) => {
   const { site, file } = useSiteMetadata()
+  const classes = useStyles()
   return (
     <StylesProvider injectFirst>
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <div
+        style={{ display: "flex", flexDirection: "column" }}
+        className={classes.root}
+      >
         <Helmet>
           <html lang="en" />
           <title>{site.siteMetadata.title}</title>
