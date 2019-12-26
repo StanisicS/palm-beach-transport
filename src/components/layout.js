@@ -11,7 +11,7 @@ import theme from "../theme"
 
 const useStyles = makeStyles(theme => ({
   root: {
-    maxWidth: "100%",
+    width: "100%",
   },
 }))
 
@@ -46,7 +46,7 @@ const TemplateWrapper = ({ children }) => {
   return (
     <StylesProvider injectFirst>
       <div
-        style={{ display: "flex", flexDirection: "column", maxWidth: "100%" }}
+        style={{ display: "flex", flexDirection: "column", width: "100%" }}
         className={classes.root}
       >
         <Helmet>
@@ -92,6 +92,7 @@ const TemplateWrapper = ({ children }) => {
           fixed
           brand={site.siteMetadata.title}
           logo={file.childImageSharp.fixed.src}
+          style={{ width: "100%" }}
           rightLinks={
             <HeaderLinks
               links={[
