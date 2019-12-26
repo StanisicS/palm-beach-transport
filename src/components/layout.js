@@ -46,7 +46,7 @@ const TemplateWrapper = ({ children }) => {
   return (
     <StylesProvider injectFirst>
       <div
-        style={{ display: "flex", flexDirection: "column" }}
+        style={{ display: "flex", flexDirection: "column", maxWidth: "100%" }}
         className={classes.root}
       >
         <Helmet>
