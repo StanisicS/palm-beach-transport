@@ -6,12 +6,19 @@ import { graphql, useStaticQuery } from "gatsby"
 import AppFooter from "../modules/views/AppFooter"
 import { StylesProvider } from "@material-ui/core/styles"
 import { makeStyles } from "@material-ui/core/styles"
+import Box from "@material-ui/core/Box"
+import Container from "@material-ui/core/Container"
 
-import theme from "../theme"
+// import theme from "../theme"
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: "100%",
+    display: "flex",
+    flexGrow: 1,
+    flexDirection: "column",
+    maxWidth: "100%",
+    paddingLeft: "0",
+    paddingRight: "0",
   },
 }))
 
@@ -45,70 +52,67 @@ const TemplateWrapper = ({ children }) => {
   const classes = useStyles()
   return (
     <StylesProvider injectFirst>
-      <div
-        style={{ display: "flex", flexDirection: "column", width: "100%" }}
-        className={classes.root}
-      >
-        <Helmet>
-          <html lang="en" />
-          <title>{site.siteMetadata.title}</title>
-          <meta name="description" content={site.siteMetadata.description} />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-          />
-
-          <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/img/apple-touch-icon.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            href="/img/favicon-32x32.png"
-            sizes="32x32"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            href="/img/favicon-16x16.png"
-            sizes="16x16"
-          />
-
-          <link
-            rel="mask-icon"
-            href="/img/safari-pinned-tab.svg"
-            color={theme.palette.primary.dark}
-          />
-          <meta name="theme-color" content="#E8ECEB" />
-
-          <meta property="og:type" content="business.business" />
-          <meta property="og:title" content={site.siteMetadata.title} />
-          <meta property="og:url" content="/" />
-          <meta property="og:image" content="/img/og-image.jpg" />
-        </Helmet>
-        <Header
-          fixed
-          brand={site.siteMetadata.title}
-          logo={file.childImageSharp.fixed.src}
-          style={{ width: "100%" }}
-          rightLinks={
-            <HeaderLinks
-              links={[
-                { link: "/", text: "Home" },
-                { link: "/need-load", text: "Find Load" },
-                { link: "/load-board", text: "Load Board" },
-                { link: "/contact-page", text: "Contact" },
-                { link: "/about", text: "About" },
-                { link: "/sign-in", text: "Log In" },
-              ]}
-            />
-          }
+      <Helmet>
+        <html lang="en" />
+        <title>{site.siteMetadata.title}</title>
+        <meta name="description" content={site.siteMetadata.description} />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <div style={{ minHeight: "100%" }}>{children}</div>
+
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/img/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href="/img/favicon-32x32.png"
+          sizes="32x32"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href="/img/favicon-16x16.png"
+          sizes="16x16"
+        />
+
+        <link
+          rel="mask-icon"
+          href="/img/safari-pinned-tab.svg"
+          color={theme.palette.primary.dark}
+        />
+        <meta name="theme-color" content="#E8ECEB" />
+
+        <meta property="og:type" content="business.business" />
+        <meta property="og:title" content={site.siteMetadata.title} />
+        <meta property="og:url" content="/" />
+        <meta property="og:image" content="/img/og-image.jpg" />
+      </Helmet>
+      <Header
+        fixed
+        brand={site.siteMetadata.title}
+        logo={file.childImageSharp.fixed.src}
+        style={{ width: "100%" }}
+        rightLinks={
+          <HeaderLinks
+            links={[
+              { link: "/", text: "Home" },
+              { link: "/need-load", text: "Find Load" },
+              { link: "/load-board", text: "Load Board" },
+              { link: "/contact-page", text: "Contact" },
+              { link: "/about", text: "About" },
+              { link: "/sign-in", text: "Log In" },
+            ]}
+          />
+        }
+      />
+      <Container className={classes.root}>
+        <Box component="main">{children}</Box>
         <AppFooter />
-      </div>
+      </Container>
     </StylesProvider>
   )
 }
